@@ -1,0 +1,6 @@
+export const SITE_URL = 'https://trustman.elite'
+export const TELEGRAM_URL = 'https://t.me/Investor776'
+export const TELEGRAM_HANDLE = '@Investor776'
+export const WHATSAPP_URL = 'https://wa.me/2349012961541'
+export const X_URL = 'https://x.com/Kareemtrustman'
+export const OWNER = 'Investor Trustman Kareem'
