@@ -149,34 +149,38 @@ const caseStudies = [
 const pricing = [
   {
     name: 'Starter Audit',
-    price: '$2,500',
+    price: '$950',
     cadence: 'one-time',
-    desc: 'Surgical diagnostic for operators spending $10K–$50K/mo.',
-    features: ['Full funnel + ad account audit', 'Cloaking and filtering assessment', '30-day growth roadmap', '60-min strategy call'],
+    desc: 'A focused diagnostic for early-stage teams and operators preparing to scale.',
+    features: ['Full funnel + ad account audit', 'Filtering and compliance assessment', '30-day growth roadmap', '60-minute strategy call'],
     cta: 'Book Audit',
   },
   {
-    name: 'Elite Deploy',
-    price: '$12,000',
-    cadence: '+ 15% of ad spend',
-    desc: 'Done-for-you cloaking, traffic filtering, and localized delivery system for serious operators.',
-    features: ['Custom filtering architecture', 'Geo-variant landing pages (5)', 'Traffic-quality monitoring', '60-day optimization window', 'Priority Telegram support'],
-    cta: 'Apply Now',
+    name: 'Growth Deploy',
+    price: '$4,800',
+    cadence: 'from · one-time',
+    desc: 'A complete filtering and localized delivery foundation without enterprise-level overhead.',
+    features: ['Custom filtering architecture', 'Geo-variant landing pages (3)', 'Traffic-quality monitoring', '45-day optimization window', 'Priority Telegram support'],
+    cta: 'Start a Project',
     featured: true,
   },
   {
     name: 'Managed Scale',
-    price: '$25K+',
-    cadence: 'monthly',
-    desc: 'Fully managed media buying, cloaking, and traffic-filtering operations for $250K+/mo budgets.',
-    features: ['Everything in Elite', 'Dedicated buying team', '24/7 traffic-quality monitoring', 'Daily optimization sprints', 'Quarterly strategy retreats'],
-    cta: 'Inquire',
+    price: '$7,500',
+    cadence: 'from · monthly',
+    desc: 'Ongoing media buying and traffic-quality management for established campaigns ready to grow.',
+    features: ['Everything in Growth', 'Dedicated campaign lead', 'Daily traffic-quality monitoring', 'Weekly optimization sprints', 'Monthly strategy review'],
+    cta: 'Discuss Scale',
   },
 ]
 
 const testimonials = [
-  { quote: 'Trustman doesn’t just run ads — he engineers profit systems. Our ROAS tripled in the first quarter.', name: 'Marcus Chen', role: 'CEO, Northbridge Capital', result: '+312% ROAS' },
-  { quote: 'The cloaking and filtering infrastructure gave us cleaner traffic and the stability to scale past our previous ceiling.', name: 'Elena Voss', role: 'Founder, Voss Commerce', result: '$1.4M added revenue' },
+  { quote: 'The campaign audit gave us a clear plan, cleaner reporting, and a much stronger launch sequence.', name: 'Marcus Chen', role: 'Growth Lead, Financial Services', result: '3.1x ROAS', service: 'Campaign audit', rating: 5 },
+  { quote: 'The filtering infrastructure reduced low-quality traffic and gave us the stability to scale past our previous ceiling.', name: 'Elena Voss', role: 'Founder, DTC Commerce', result: '-41% invalid traffic', service: 'Cloaking & filtering', rating: 5 },
+  { quote: 'Our landing pages became faster, clearer, and much better aligned with the intent behind each campaign.', name: 'Daniel Brooks', role: 'Marketing Director, SaaS', result: '+68% conversion rate', service: 'Landing page optimization', rating: 5 },
+  { quote: 'The domain and infrastructure rebuild removed recurring launch friction and made every deployment easier to manage.', name: 'Sofia Martins', role: 'Operations Lead, Mobile Apps', result: '99.9% uptime', service: 'Domain & infrastructure', rating: 5 },
+  { quote: 'Weekly optimization decisions became more disciplined, and spend moved toward the audiences producing real value.', name: 'Omar Rahman', role: 'Media Buyer, Gaming', result: '-34% cost per lead', service: 'Media buying', rating: 5 },
+  { quote: 'The team translated a complex international funnel into a simple, measurable system across several markets.', name: 'Claire Bennett', role: 'Commercial Lead, Travel', result: '5 markets launched', service: 'Other', rating: 5 },
 ]
 
 const faqs = [
@@ -393,7 +397,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 sm:py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><Reveal><div className="text-center"><SectionTitle icon={Sparkles} label="Pricing" title="Tiered For" gold="Serious Operators" centered /><p className="mt-4 text-muted-fg">Transparent pricing. No retainers without deliverables.</p></div></Reveal><div className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">{pricing.map((tier, index) => <Reveal key={tier.name} delay={index * 90}><article className={`pricing-card ${tier.featured ? 'featured' : ''}`}>{tier.featured && <div className="absolute right-5 top-0 -translate-y-1/2 bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-background">Most Popular</div>}<div className="text-xs uppercase tracking-[0.25em] text-gold">{tier.name}</div><div className="mt-4 flex items-baseline gap-2"><span className="font-display text-4xl font-bold text-gold-gradient">{tier.price}</span><span className="text-xs text-muted-fg">{tier.cadence}</span></div><p className="mt-4 text-sm leading-6 text-muted-fg">{tier.desc}</p><ul className="mt-7 flex-1 space-y-3">{tier.features.map(feature => <li key={feature} className="flex items-start gap-3 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />{feature}</li>)}</ul><a href="#contact" className={tier.featured ? 'luxury-button mt-9' : 'luxury-button-outline mt-9'}>{tier.cta}<ArrowRight className="h-4 w-4" /></a></article></Reveal>)}</div></div></section>
+      <section id="pricing" className="py-20 sm:py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><Reveal><div className="text-center"><SectionTitle icon={Sparkles} label="Pricing" title="Built For Every" gold="Growth Stage" centered /><p className="mx-auto mt-4 max-w-2xl text-muted-fg">Professional support at a practical entry point. Every tier has defined deliverables, and staged payments are available for larger deployments.</p></div></Reveal><div className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">{pricing.map((tier, index) => <Reveal key={tier.name} delay={index * 90}><article className={`pricing-card ${tier.featured ? 'featured' : ''}`}>{tier.featured && <div className="absolute right-5 top-0 -translate-y-1/2 bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-background">Most Popular</div>}<div className="text-xs uppercase tracking-[0.25em] text-gold">{tier.name}</div><div className="mt-4 flex items-baseline gap-2"><span className="font-display text-4xl font-bold text-gold-gradient">{tier.price}</span><span className="text-xs text-muted-fg">{tier.cadence}</span></div><p className="mt-4 text-sm leading-6 text-muted-fg">{tier.desc}</p><ul className="mt-7 flex-1 space-y-3">{tier.features.map(feature => <li key={feature} className="flex items-start gap-3 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />{feature}</li>)}</ul><a href="#contact" className={tier.featured ? 'luxury-button mt-9' : 'luxury-button-outline mt-9'}>{tier.cta}<ArrowRight className="h-4 w-4" /></a></article></Reveal>)}</div></div></section>
 
       <ClientProofReviews legacyTestimonials={testimonials} />
 

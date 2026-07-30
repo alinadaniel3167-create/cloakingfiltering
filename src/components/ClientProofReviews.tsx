@@ -35,6 +35,8 @@ type LegacyTestimonial = {
   name: string
   role: string
   result: string
+  service: string
+  rating: number
 }
 
 type ProofUpload = {
@@ -203,9 +205,10 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
                 <option value="highest">Highest rated</option>
                 <option value="helpful">Most helpful</option>
               </select>
-              <label className="flex min-h-11 cursor-pointer items-center gap-2 border border-line/70 bg-background/55 px-3 text-xs text-muted-fg transition-colors hover:border-gold/40">
-                <input type="checkbox" checked={verified} onChange={(event) => setVerified(event.target.checked)} className="accent-gold" /> Verified only
-              </label>
+              <select aria-label="Filter by verification status" value={verified ? 'verified' : ''} onChange={(event) => setVerified(event.target.value === 'verified')} className="review-control">
+                <option value="">All verification statuses</option>
+                <option value="verified">Verified clients only</option>
+              </select>
             </div>
           </div>
 
@@ -225,7 +228,7 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
             </div>
           ) : null}
           {!loading && !loadError && !reviews.length ? (
-            <LegacyProof testimonials={legacyTestimonials} filtered={Boolean(service || rating || verified)} onSubmit={() => setFormOpen(true)} />
+            <LegacyProof testimonials={legacyTestimonials} service={service} minimumRating={Number(rating) || 0} verifiedOnly={verified} onSubmit={() => setFormOpen(true)} />
           ) : null}
 
           {totalPages > 1 ? (
@@ -355,21 +358,28 @@ function Stars({ rating, interactive = false, onChange }: { rating: number; inte
   )
 }
 
-function LegacyProof({ testimonials, filtered, onSubmit }: { testimonials: LegacyTestimonial[]; filtered: boolean; onSubmit: () => void }) {
-  if (filtered) return <EmptyReviewState title="No reviews match these filters" body="Clear one or more filters, or be the first client to add matching proof." onSubmit={onSubmit} />
+function LegacyProof({ testimonials, service, minimumRating, verifiedOnly, onSubmit }: { testimonials: LegacyTestimonial[]; service: string; minimumRating: number; verifiedOnly: boolean; onSubmit: () => void }) {
+  const filteredTestimonials = verifiedOnly
+    ? []
+    : testimonials.filter((testimonial) => (!service || testimonial.service === service) && (!minimumRating || testimonial.rating >= minimumRating))
+  if (!filteredTestimonials.length) return <EmptyReviewState title="No feedback matches these filters" body={verifiedOnly ? 'The portfolio archive is kept separate from the verified feed. Choose all verification statuses or submit the first verified review.' : 'Try another project type or rating, or add a new proof-backed review.'} onSubmit={onSubmit} />
   return (
     <div className="mt-8">
-      <div className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] text-muted-fg"><span className="h-px w-10 bg-gold/45" /> Curated client statements from the original portfolio</div>
-      <div className="grid gap-5 md:grid-cols-2">
-        {testimonials.map((testimonial) => (
-          <figure key={testimonial.name} className="border border-line/60 bg-background/50 p-7">
-            <Stars rating={5} />
+      <div className="mb-5 flex flex-col gap-2 border-l border-gold/40 pl-4 sm:flex-row sm:items-end sm:justify-between">
+        <div><div className="text-[10px] uppercase tracking-[0.2em] text-gold">Portfolio feedback archive</div><p className="mt-1 text-xs text-muted-fg">A varied selection of client statements aligned with the services above.</p></div>
+        <div className="text-[10px] uppercase tracking-[0.18em] text-muted-fg">Showing {filteredTestimonials.length} of 50 ratings</div>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {filteredTestimonials.map((testimonial) => (
+          <figure key={testimonial.name} className="group flex h-full flex-col border border-line/60 bg-background/50 p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-gold/35">
+            <div className="flex items-center justify-between gap-3"><Stars rating={testimonial.rating} /><span className="border border-line/70 px-2 py-1 text-[9px] uppercase tracking-[0.14em] text-muted-fg">Portfolio record</span></div>
+            <div className="mt-5 text-[10px] uppercase tracking-[0.18em] text-gold">{testimonial.service}</div>
             <blockquote className="mt-5 font-display text-xl leading-relaxed">“{testimonial.quote}”</blockquote>
-            <figcaption className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-line/60 pt-5"><div><div className="font-semibold">{testimonial.name}</div><div className="mt-1 text-sm text-muted-fg">{testimonial.role}</div></div><div className="text-sm font-bold text-gold">{testimonial.result}</div></figcaption>
+            <figcaption className="mt-auto flex flex-wrap items-end justify-between gap-4 border-t border-line/60 pt-5"><div><div className="font-semibold">{testimonial.name}</div><div className="mt-1 text-sm text-muted-fg">{testimonial.role}</div></div><div className="text-sm font-bold text-gold">{testimonial.result}</div></figcaption>
           </figure>
         ))}
       </div>
-      <p className="mt-4 text-xs leading-5 text-muted-fg">These legacy statements remain separate from the verified, image-backed review feed. New reviews are published only after moderation.</p>
+      <p className="mt-4 text-xs leading-5 text-muted-fg">Portfolio records remain separate from the verified, image-backed review feed. New reviews receive a verified badge only after moderation and project checks.</p>
     </div>
   )
 }
