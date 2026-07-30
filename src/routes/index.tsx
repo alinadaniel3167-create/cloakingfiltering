@@ -17,7 +17,6 @@ import {
   ShoppingBag,
   Smartphone,
   Sparkles,
-  Star,
   Target,
   TrendingUp,
   Zap,
@@ -26,6 +25,7 @@ import {
 import { useState } from 'react'
 import { ContactForms } from '@/components/ContactForms'
 import { CampaignShowcase } from '@/components/CampaignShowcase'
+import { ClientProofReviews, ReviewSummaryBadge } from '@/components/ClientProofReviews'
 import { Faq } from '@/components/Faq'
 import { Reveal } from '@/components/Reveal'
 import { RoiCalculator } from '@/components/RoiCalculator'
@@ -175,8 +175,8 @@ const pricing = [
 ]
 
 const testimonials = [
-  ['Trustman doesn’t just run ads — he engineers profit systems. Our ROAS tripled in the first quarter.', 'Marcus Chen', 'CEO, Northbridge Capital', '+312% ROAS'],
-  ['The cloaking and filtering infrastructure gave us cleaner traffic and the stability to scale past our previous ceiling.', 'Elena Voss', 'Founder, Voss Commerce', '$1.4M added revenue'],
+  { quote: 'Trustman doesn’t just run ads — he engineers profit systems. Our ROAS tripled in the first quarter.', name: 'Marcus Chen', role: 'CEO, Northbridge Capital', result: '+312% ROAS' },
+  { quote: 'The cloaking and filtering infrastructure gave us cleaner traffic and the stability to scale past our previous ceiling.', name: 'Elena Voss', role: 'Founder, Voss Commerce', result: '$1.4M added revenue' },
 ]
 
 const faqs = [
@@ -222,6 +222,7 @@ function Home() {
                 <span className="inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-gold" /> Clear next steps</span>
                 <span className="inline-flex items-center gap-2"><Globe2 className="h-4 w-4 text-gold" /> Worldwide service</span>
               </div>
+              <ReviewSummaryBadge />
             </Reveal>
           </div>
           <Reveal delay={160} className="hidden lg:block">
@@ -394,7 +395,7 @@ function Home() {
 
       <section id="pricing" className="py-20 sm:py-24"><div className="mx-auto max-w-7xl px-6 lg:px-8"><Reveal><div className="text-center"><SectionTitle icon={Sparkles} label="Pricing" title="Tiered For" gold="Serious Operators" centered /><p className="mt-4 text-muted-fg">Transparent pricing. No retainers without deliverables.</p></div></Reveal><div className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">{pricing.map((tier, index) => <Reveal key={tier.name} delay={index * 90}><article className={`pricing-card ${tier.featured ? 'featured' : ''}`}>{tier.featured && <div className="absolute right-5 top-0 -translate-y-1/2 bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-background">Most Popular</div>}<div className="text-xs uppercase tracking-[0.25em] text-gold">{tier.name}</div><div className="mt-4 flex items-baseline gap-2"><span className="font-display text-4xl font-bold text-gold-gradient">{tier.price}</span><span className="text-xs text-muted-fg">{tier.cadence}</span></div><p className="mt-4 text-sm leading-6 text-muted-fg">{tier.desc}</p><ul className="mt-7 flex-1 space-y-3">{tier.features.map(feature => <li key={feature} className="flex items-start gap-3 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />{feature}</li>)}</ul><a href="#contact" className={tier.featured ? 'luxury-button mt-9' : 'luxury-button-outline mt-9'}>{tier.cta}<ArrowRight className="h-4 w-4" /></a></article></Reveal>)}</div></div></section>
 
-      <section className="section-wash py-20"><div className="mx-auto max-w-6xl px-6 lg:px-8"><Reveal><div className="text-center"><SectionTitle icon={Star} label="Client Proof" title="Trusted by" gold="Operators" centered /></div></Reveal><div className="mt-10 grid gap-5 md:grid-cols-2">{testimonials.map(([quote, name, role, result], index) => <Reveal key={name} delay={index * 90}><figure className="h-full border border-line/60 bg-background/50 p-7"><div className="flex gap-1">{Array.from({ length: 5 }).map((_, star) => <Star key={star} className="h-3.5 w-3.5 fill-gold text-gold" />)}</div><blockquote className="mt-5 font-display text-xl leading-relaxed">“{quote}”</blockquote><figcaption className="mt-6 flex flex-wrap items-end justify-between gap-4 border-t border-line/60 pt-5"><div><div className="font-semibold">{name}</div><div className="mt-1 text-sm text-muted-fg">{role}</div></div><div className="text-sm font-bold text-gold">{result}</div></figcaption></figure></Reveal>)}</div></div></section>
+      <ClientProofReviews legacyTestimonials={testimonials} />
 
       <section id="faq" className="py-20 sm:py-24"><div className="mx-auto max-w-4xl px-6 lg:px-8"><Reveal><div className="text-center"><SectionTitle icon={Zap} label="FAQ" title="Common" gold="Questions" centered /><p className="mt-4 text-muted-fg">Straight answers. No fluff.</p></div></Reveal><Reveal delay={120} className="mt-12"><Faq items={faqs} /></Reveal></div></section>
 

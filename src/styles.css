@@ -317,6 +317,101 @@ h4 {
   color: rgba(163, 158, 145, 0.55);
 }
 
+.review-control,
+.review-input {
+  width: 100%;
+  border: 1px solid rgba(32, 47, 66, 0.75);
+  background: rgba(2, 6, 13, 0.82);
+  color: var(--color-fg);
+  font-size: 0.78rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.review-control {
+  min-height: 44px;
+  padding: 0.65rem 2.1rem 0.65rem 0.75rem;
+}
+
+.review-input {
+  margin-top: 0.45rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.review-control:focus,
+.review-input:focus {
+  border-color: rgba(238, 188, 74, 0.68);
+  box-shadow: 0 0 0 3px rgba(238, 188, 74, 0.08);
+}
+
+.review-input::placeholder {
+  color: rgba(163, 158, 145, 0.55);
+}
+
+.review-label {
+  display: block;
+  color: var(--color-muted-fg);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.review-dropzone {
+  border: 1px dashed rgba(238, 188, 74, 0.3);
+  background: rgba(238, 188, 74, 0.025);
+  padding: 1.4rem;
+  text-align: center;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.review-dropzone:hover,
+.review-dropzone:focus-within {
+  border-color: rgba(238, 188, 74, 0.62);
+  background: rgba(238, 188, 74, 0.055);
+}
+
+.review-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 180ms ease;
+}
+
+.review-action:hover {
+  color: var(--color-gold);
+}
+
+.proof-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(32, 47, 66, 0.65);
+  background: rgba(13, 27, 45, 0.34);
+  padding: 0.4rem 0.5rem;
+}
+
+.review-page-button {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(32, 47, 66, 0.75);
+  color: var(--color-fg);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.review-page-button:hover:not(:disabled) {
+  border-color: rgba(238, 188, 74, 0.6);
+  color: var(--color-gold);
+}
+
+.review-page-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
 /* Reveal-on-scroll animation */
 .reveal {
   opacity: 0;

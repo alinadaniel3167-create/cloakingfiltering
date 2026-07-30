@@ -13,7 +13,7 @@ const STATIC_PATHS = [
   { path: '/responsible-advertising', priority: '0.6', freq: 'yearly' },
 ]
 
-export const Route = createFileRoute('/sitemap[.]xml')({
+export const Route = createFileRoute('/sitemap.xml')({
   server: {
     handlers: {
       GET: () => {
