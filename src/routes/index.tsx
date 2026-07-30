@@ -149,7 +149,7 @@ const caseStudies = [
 const pricing = [
   {
     name: 'Starter Audit',
-    price: '$950',
+    price: '$750',
     cadence: 'one-time',
     desc: 'A focused diagnostic for early-stage teams and operators preparing to scale.',
     features: ['Full funnel + ad account audit', 'Filtering and compliance assessment', '30-day growth roadmap', '60-minute strategy call'],
@@ -157,7 +157,7 @@ const pricing = [
   },
   {
     name: 'Growth Deploy',
-    price: '$4,800',
+    price: '$4,200',
     cadence: 'from · one-time',
     desc: 'A complete filtering and localized delivery foundation without enterprise-level overhead.',
     features: ['Custom filtering architecture', 'Geo-variant landing pages (3)', 'Traffic-quality monitoring', '45-day optimization window', 'Priority Telegram support'],
@@ -166,7 +166,7 @@ const pricing = [
   },
   {
     name: 'Managed Scale',
-    price: '$7,500',
+    price: '$6,500',
     cadence: 'from · monthly',
     desc: 'Ongoing media buying and traffic-quality management for established campaigns ready to grow.',
     features: ['Everything in Growth', 'Dedicated campaign lead', 'Daily traffic-quality monitoring', 'Weekly optimization sprints', 'Monthly strategy review'],
