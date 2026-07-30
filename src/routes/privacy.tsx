@@ -18,8 +18,8 @@ export const Route = createFileRoute('/privacy')({
 const sections = [
   {
     title: 'Information collected',
-    paragraphs: ['Information is collected when you submit the strategy-audit form or contact Trustman through a linked communication platform.'],
-    items: ['Name and business email address', 'Business or brand name', 'Monthly advertising budget range', 'Project goals and any information included in your message', 'Basic technical information recorded by hosting and security providers to deliver and protect the website'],
+    paragraphs: ['Information is collected when you submit the strategy-audit form, submit a client proof review, or contact Trustman through a linked communication platform.'],
+    items: ['Name and business email address', 'Business or brand name', 'Monthly advertising budget range', 'Project goals and any information included in your message', 'Review rating, service details, project date, client photo, image proof, image descriptions, and publication consent when you submit a review', 'Basic technical information recorded by hosting and security providers to deliver and protect the website'],
   },
   {
     title: 'How information is used',
@@ -27,7 +27,11 @@ const sections = [
   },
   {
     title: 'Form processing and service providers',
-    paragraphs: ['Website inquiries are processed through Netlify Forms. If you choose Telegram or another external platform, that provider processes your communication under its own privacy terms. Information may also be handled by essential hosting, security, and professional service providers only when needed to operate the business or comply with law.'],
+    paragraphs: ['Website inquiries are processed through Netlify Forms. Client proof records are stored in Netlify Database and uploaded media is stored in Netlify Blobs after image optimization and metadata removal. If you choose Telegram or another external platform, that provider processes your communication under its own privacy terms. Information may also be handled by essential hosting, security, verification, and professional service providers only when needed to operate the business or comply with law.'],
+  },
+  {
+    title: 'Client proof publication and moderation',
+    paragraphs: ['Review email addresses, network fingerprints, moderation notes, and verification tokens are private and are not displayed publicly. Approved reviews may display the submitted client name, business, rating, written review, project timing, client photo, proof images, image descriptions, and owner response. Submissions and replies may be rejected, hidden, or removed when authenticity, consent, safety, or relevance cannot be confirmed.'],
   },
   {
     title: 'Sharing and sale of information',
@@ -44,5 +48,5 @@ const sections = [
 ]
 
 function Privacy() {
-  return <PolicyPage eyebrow="Privacy" title="Your information deserves clear boundaries." intro="This policy explains what the website collects, why it is collected, and how inquiry information is handled." updated="July 15, 2026" sections={sections} />
+  return <PolicyPage eyebrow="Privacy" title="Your information deserves clear boundaries." intro="This policy explains what the website collects, why it is collected, and how inquiry and client proof information is handled." updated="July 29, 2026" sections={sections} />
 }

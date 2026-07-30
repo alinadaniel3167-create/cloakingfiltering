@@ -8,11 +8,13 @@ A premium, dark-themed personal portfolio and lead-generation site for **Investo
 |-------|------------|
 | Framework | TanStack Start v1 |
 | Frontend | React 19, TanStack Router v1 |
-| Data/queries | TanStack Query v5 |
+| Data/queries | TanStack Query v5 + Netlify Database (Drizzle ORM) |
 | Build | Vite 7 |
 | Styling | Tailwind CSS v4 (`src/styles.css`) |
 | Fonts | Playfair Display (serif headings) + Inter (body), via Google Fonts |
-| Forms | Netlify Forms |
+| Forms | Netlify Forms + Netlify Functions |
+| Uploads | Netlify Blobs + Sharp image optimization |
+| Admin auth | Netlify Identity |
 | Language | TypeScript 5 (strict) |
 | Deployment | Netlify (Cloudflare Workers runtime) |
 
@@ -28,6 +30,8 @@ Near-black canvas (`#0a0a0a`) with a warm gold primary (`#d4af5f`), layered grad
 - `/case-studies` — Index of redacted case studies (vertical, duration, spend, ROAS, revenue).
 - `/case-studies/$slug` — Dynamic case-study pages driven by `src/lib/case-studies.ts`.
 - `/guides/tiktok-ads-cloaking` — 2026 guide to valuable cloaking and traffic filtering for TikTok campaigns.
+- `/#client-proof` — Verified, image-backed client review feed and submission portal.
+- `/admin/reviews` — Identity-protected review moderation, engagement analytics, owner responses, and CSV export.
 - `/sitemap.xml` — Dynamic sitemap server route.
 
 Plus `public/robots.txt` and `public/llms.txt` (an AI-crawler summary of the site).
@@ -46,6 +50,29 @@ netlify dev --port 8889
 ```
 
 > **Note:** Netlify Forms submissions only work on a deployed site / deploy preview, not in local dev.
+
+## Client proof review system
+
+Review records use Netlify Database, while optimized client photos and proof images use Netlify Blobs. Database migrations live in `netlify/database/migrations/` and are applied automatically by Netlify.
+
+Public API routes:
+
+- `POST /api/reviews/submit`
+- `GET /api/reviews/approved`
+- `POST /api/reviews/:id/helpful`
+- `POST /api/reviews/:id/reply`
+- `POST /api/reviews/:id/report`
+
+Admin routes require an authenticated Netlify Identity user with the `admin` role. To create the first administrator, invite the user in the Netlify Identity dashboard, wait for the invitation to be accepted, then add `admin` in the user’s Roles field.
+
+Optional environment variables strengthen integrations without changing the default moderation flow:
+
+- `REVIEW_HASH_SALT` — private salt used for rate-limit and engagement fingerprints.
+- `VITE_RECAPTCHA_SITE_KEY` and `REVIEW_RECAPTCHA_SECRET` — enable reCAPTCHA v3 with the `review_submit` action.
+- `REVIEW_SCAN_WEBHOOK_URL` — receives each upload as multipart form data and must respond with `{ "safe": true }`.
+- `REVIEW_EMAIL_WEBHOOK_URL` — receives JSON events for `review-verification` and `review-approved` notifications.
+
+Without an email webhook, submissions still enter the private moderation queue and become verified when an administrator approves them. Images are converted to WebP, resized, compressed, and stripped of embedded metadata before storage.
 
 ## Telegram form notifications
 

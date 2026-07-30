@@ -150,6 +150,7 @@ const NAV = [
   { href: '/#process', label: 'Process' },
   { href: '/#work', label: 'Work' },
   { href: '/#results', label: 'Results' },
+  { href: '/#client-proof', label: 'Proof' },
   { href: '/#pricing', label: 'Pricing' },
   { href: '/#faq', label: 'FAQ' },
   { href: '/#contact', label: 'Contact' },
