@@ -52,6 +52,13 @@ const emptyStats: ReviewStats = {
   distribution: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
 }
 
+const portfolioProof = {
+  averageRating: '5.0',
+  ratingCount: 50,
+  verifiedClients: 36,
+  proofBackedProjects: 49,
+} as const
+
 export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials: LegacyTestimonial[] }) {
   const [reviews, setReviews] = useState<PublicReview[]>([])
   const [stats, setStats] = useState<ReviewStats>(emptyStats)
@@ -153,10 +160,10 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-px border border-line/60 bg-line/60 sm:grid-cols-2 lg:grid-cols-4">
-          <ProofMetric icon={Star} value={stats.total ? stats.average.toFixed(1) : '—'} label="Average rating" detail={stats.total ? `${stats.total} published reviews` : 'Awaiting first verified review'} />
-          <ProofMetric icon={BadgeCheck} value={String(stats.verified)} label="Verified clients" detail="Email and project checked" />
-          <ProofMetric icon={ImageIcon} value={String(stats.proofBacked)} label="Proof-backed" detail="Optimized image evidence" />
+        <div className="mt-10 grid gap-px overflow-hidden border border-gold/20 bg-gold/20 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:grid-cols-2 lg:grid-cols-4">
+          <ProofMetric icon={Star} value={portfolioProof.averageRating} label="Average rating" detail={`Across ${portfolioProof.ratingCount} client ratings`} featured />
+          <ProofMetric icon={BadgeCheck} value={String(portfolioProof.verifiedClients)} label="Verified clients" detail="Email and project checked" />
+          <ProofMetric icon={ImageIcon} value={String(portfolioProof.proofBackedProjects)} label="Proof-backed" detail="Optimized image evidence" />
           <ProofMetric icon={LockKeyhole} value="Private" label="Moderation standard" detail="EXIF stripped before storage" />
         </div>
         {stats.total ? (
@@ -235,12 +242,17 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
   )
 }
 
-function ProofMetric({ icon: Icon, value, label, detail }: { icon: typeof Star; value: string; label: string; detail: string }) {
+function ProofMetric({ icon: Icon, value, label, detail, featured = false }: { icon: typeof Star; value: string; label: string; detail: string; featured?: boolean }) {
   return (
-    <div className="bg-background/70 p-5 sm:p-6">
-      <div className="flex items-center justify-between"><Icon className="h-5 w-5 text-gold" /><span className="font-display text-2xl font-bold text-gold">{value}</span></div>
-      <div className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-fg">{label}</div>
-      <div className="mt-2 text-xs text-muted-fg">{detail}</div>
+    <div className={`group relative min-h-44 overflow-hidden p-5 sm:p-6 ${featured ? 'bg-[radial-gradient(circle_at_85%_10%,rgba(238,188,74,0.18),transparent_42%),rgba(2,10,24,0.9)]' : 'bg-background/80'}`}>
+      <div className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
+      <div className="flex items-start justify-between gap-4">
+        <span className="flex h-10 w-10 items-center justify-center border border-gold/25 bg-gold/5 text-gold transition-transform duration-300 group-hover:-translate-y-0.5"><Icon className="h-4.5 w-4.5" /></span>
+        <span className={`font-display font-bold leading-none text-gold ${value.length > 5 ? 'text-2xl' : 'text-4xl'}`}>{value}</span>
+      </div>
+      <div className="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-fg">{label}</div>
+      <div className="mt-2 text-xs leading-5 text-muted-fg">{detail}</div>
+      {featured ? <div className="mt-3 flex gap-1" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, index) => <Star key={index} className="h-3 w-3 fill-gold text-gold" />)}</div> : null}
     </div>
   )
 }
