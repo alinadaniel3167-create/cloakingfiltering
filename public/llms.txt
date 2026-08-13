@@ -4,10 +4,13 @@
 
 ## Pages
 
-- [Home](https://trustman.elite/): Overview of valuable cloaking, traffic filtering, vertical expertise, localization, media buying, operating standards, results, pricing, FAQs, and contact. The service excludes counterfeit goods, scareware, deceptive call flows, forced notification prompts, impersonation, and reviewer-evasion cloaking.
+- [Home](https://trustman.elite/): Overview of valuable cloaking, traffic filtering, vertical expertise, localization, media buying, selected results, and contact. The service excludes counterfeit goods, scareware, deceptive call flows, forced notification prompts, impersonation, and reviewer-evasion cloaking.
+- [Services & Pricing](https://trustman.elite/services): Full scope of the cloaking and filtering engagement, the five-stage process from audit to scale, an ROI calculator, pricing tiers, and frequently asked questions.
+- [Markets Served](https://trustman.elite/markets): The six performance verticals covered — e-commerce and consumer products, crypto and financial offers, regulated gambling and gaming, peptides and nutra and CBD, travel and call and service funnels, and mobile app acquisition — with what each engagement handles.
 - [Free Funnel Audit](https://trustman.elite/audit): A no-cost review of cloaking, filtering, traffic quality, funnel structure, measurement, and media buying, plus a 30-day growth roadmap.
 - [2026 Cloaker Playbook](https://trustman.elite/playbook): A guide to bot filtering, fraud reduction, responsible personalization, localization, measurement, and durable paid-media operations.
-- [Case Studies](https://trustman.elite/case-studies): Index of redacted case studies with vertical, duration, spend, ROAS, and revenue.
+- [Case Studies](https://trustman.elite/case-studies): Index of redacted case studies with vertical, duration, spend, ROAS, and revenue, plus selected campaign work and client reviews.
+- [Working Archive](https://trustman.elite/proof): Unretouched platform screenshots from delivered engagements, filterable by discipline — Google Ads and Meta campaign structure, push and native network buying, Keitaro click-level tracking, tracker DNS and domain setup, Shopify storefront builds, and catalogue SEO. Client names and server addresses are cropped or redacted; deceptive creative categories are excluded by policy.
 - [Responsible Advertising Principles](https://trustman.elite/responsible-advertising): Standards for traffic filtering, localization, claims, landing-page consistency, and lawful performance advertising.
 - [Privacy Policy](https://trustman.elite/privacy): How inquiry information is collected, used, protected, and retained.
 - [Terms of Use](https://trustman.elite/terms): Terms governing the website, service inquiries, client responsibilities, and performance claims.

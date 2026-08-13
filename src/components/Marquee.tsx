@@ -17,7 +17,7 @@ export function Marquee({ items, className = '' }: MarqueeProps) {
             <span className="whitespace-nowrap font-serif text-lg tracking-wide text-muted-fg">
               {item}
             </span>
-            <span className="h-1.5 w-1.5 rotate-45 bg-gold/50" aria-hidden="true" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-accent/50" aria-hidden="true" />
           </div>
         ))}
       </div>

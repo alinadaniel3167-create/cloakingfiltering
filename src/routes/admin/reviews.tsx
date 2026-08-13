@@ -97,7 +97,7 @@ function AdminLogin({ error, onLogin }: { error: string; onLogin: (user: User) =
   const [sending, setSending] = useState(false)
   return (
     <main className="mx-auto flex min-h-[70vh] max-w-lg items-center px-5 py-20">
-      <form className="w-full border border-gold/25 bg-panel/80 p-7 shadow-luxury sm:p-9" onSubmit={async (event) => {
+      <form className="w-full border border-accent/25 bg-panel/80 p-7 shadow-luxury sm:p-9" onSubmit={async (event) => {
         event.preventDefault(); setSending(true); setMessage('')
         const form = new FormData(event.currentTarget)
         try {
@@ -109,13 +109,13 @@ function AdminLogin({ error, onLogin }: { error: string; onLogin: (user: User) =
           setSending(false)
         }
       }}>
-        <ShieldCheck className="h-9 w-9 text-gold" />
-        <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-gold">Protected moderation</div>
+        <ShieldCheck className="h-9 w-9 text-accent" />
+        <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-accent">Protected moderation</div>
         <h1 className="mt-3 font-display text-4xl font-bold">Review admin</h1>
         <p className="mt-4 text-sm leading-6 text-muted-fg">Sign in with an invited Netlify Identity account carrying the <code>admin</code> role.</p>
         <label className="review-label mt-7">Email<input name="email" type="email" required autoComplete="email" className="review-input" /></label>
         <label className="review-label mt-4">Password<input name="password" type="password" required autoComplete="current-password" className="review-input" /></label>
-        {message ? <p className="mt-4 border border-rose-400/20 bg-rose-400/5 p-3 text-xs text-rose-200">{message}</p> : null}
+        {message ? <p className="mt-4 border border-orange-400/20 bg-orange-400/5 p-3 text-xs text-orange-200">{message}</p> : null}
         <button type="submit" disabled={sending} className="luxury-button mt-6 w-full disabled:opacity-50">{sending ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Signing in</> : 'Open moderation'}</button>
       </form>
     </main>
@@ -123,7 +123,7 @@ function AdminLogin({ error, onLogin }: { error: string; onLogin: (user: User) =
 }
 
 function AccessDenied({ user, onLogout }: { user: User; onLogout: () => Promise<void> }) {
-  return <main className="mx-auto max-w-xl px-5 py-24 text-center"><X className="mx-auto h-10 w-10 text-rose-300" /><h1 className="mt-6 font-display text-4xl font-bold">Admin role required</h1><p className="mt-4 text-sm leading-6 text-muted-fg">{user.email} is authenticated but does not have review moderation access. Add the <code>admin</code> role in Netlify Identity.</p><button type="button" onClick={() => void onLogout()} className="luxury-button-outline mt-7"><LogOut className="h-4 w-4" /> Sign out</button></main>
+  return <main className="mx-auto max-w-xl px-5 py-24 text-center"><X className="mx-auto h-10 w-10 text-orange-300" /><h1 className="mt-6 font-display text-4xl font-bold">Admin role required</h1><p className="mt-4 text-sm leading-6 text-muted-fg">{user.email} is authenticated but does not have review moderation access. Add the <code>admin</code> role in Netlify Identity.</p><button type="button" onClick={() => void onLogout()} className="luxury-button-outline mt-7"><LogOut className="h-4 w-4" /> Sign out</button></main>
 }
 
 function ModerationDashboard({ user, onLogout }: { user: User; onLogout: () => Promise<void> }) {
@@ -169,7 +169,7 @@ function ModerationDashboard({ user, onLogout }: { user: User; onLogout: () => P
   return (
     <main className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-6 border-b border-line/60 pb-8 lg:flex-row lg:items-end lg:justify-between">
-        <div><div className="text-[10px] uppercase tracking-[0.22em] text-gold">Client proof operations</div><h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">Review moderation</h1><p className="mt-3 text-sm text-muted-fg">Signed in as {user.email}</p></div>
+        <div><div className="text-[10px] uppercase tracking-[0.22em] text-accent">Client proof operations</div><h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">Review moderation</h1><p className="mt-3 text-sm text-muted-fg">Signed in as {user.email}</p></div>
         <div className="flex flex-wrap gap-3"><a href="/api/reviews/admin/export" className="luxury-button-outline"><Download className="h-4 w-4" /> Export CSV</a><Link to="/" className="luxury-button-outline">View site</Link><button type="button" onClick={() => void onLogout()} className="luxury-button-outline"><LogOut className="h-4 w-4" /> Sign out</button></div>
       </div>
 
@@ -182,20 +182,20 @@ function ModerationDashboard({ user, onLogout }: { user: User; onLogout: () => P
       </div>
 
       <div className="mt-10 flex flex-col gap-4 border-y border-line/60 py-4 xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex flex-wrap gap-2">{['pending', 'approved', 'hidden', 'rejected'].map((item) => <button key={item} type="button" onClick={() => setStatus(item)} className={`border px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${status === item ? 'border-gold bg-gold/10 text-gold' : 'border-line text-muted-fg hover:border-gold/40'}`}>{item}</button>)}</div>
+        <div className="flex flex-wrap gap-2">{['pending', 'approved', 'hidden', 'rejected'].map((item) => <button key={item} type="button" onClick={() => setStatus(item)} className={`border px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${status === item ? 'border-accent bg-accent/10 text-accent' : 'border-line text-muted-fg hover:border-accent/40'}`}>{item}</button>)}</div>
         <div className="flex flex-wrap gap-2"><AdminAction icon={Check} label="Approve" disabled={!selected.length} onClick={() => void action('approve')} /><AdminAction icon={Sparkles} label="Feature" disabled={!selected.length} onClick={() => void action('feature')} /><AdminAction icon={EyeOff} label="Hide" disabled={!selected.length} onClick={() => void action('hide')} /><AdminAction icon={Trash2} label="Delete" danger disabled={!selected.length} onClick={() => { if (window.confirm('Permanently delete the selected reviews and proof media?')) void action('delete') }} /></div>
       </div>
-      {message ? <p role="status" className="mt-5 border border-gold/20 bg-gold/5 p-4 text-sm text-gold">{message}</p> : null}
+      {message ? <p role="status" className="mt-5 border border-accent/20 bg-accent/5 p-4 text-sm text-accent">{message}</p> : null}
 
       {loading ? <AdminLoading label="Loading moderation queue" /> : (
         <div className="mt-7 space-y-5">
           {!data.reviews.length ? <div className="border border-dashed border-line p-14 text-center text-sm text-muted-fg">No {status} reviews.</div> : null}
           {data.reviews.map((review) => (
             <article key={review.id} className="grid gap-6 border border-line/60 bg-background/50 p-5 lg:grid-cols-[auto_1fr_280px] lg:p-6">
-              <input type="checkbox" aria-label={`Select ${review.clientName}`} checked={selected.includes(review.id)} onChange={(event) => setSelected((items) => event.target.checked ? [...items, review.id] : items.filter((id) => id !== review.id))} className="mt-1 h-4 w-4 accent-gold" />
+              <input type="checkbox" aria-label={`Select ${review.clientName}`} checked={selected.includes(review.id)} onChange={(event) => setSelected((items) => event.target.checked ? [...items, review.id] : items.filter((id) => id !== review.id))} className="mt-1 h-4 w-4 accent-accent" />
               <div>
-                <div className="flex flex-wrap items-center gap-3"><img src={review.avatarUrl} alt={review.avatarAlt} className="h-14 w-14 rounded-full border border-gold/35 object-cover" /><div><div className="flex items-center gap-2"><h2 className="font-display text-xl font-bold">{review.clientName}</h2>{review.verified ? <BadgeCheck className="h-4 w-4 text-gold" /> : null}</div><p className="mt-1 text-xs text-muted-fg">{review.email} · {review.business || 'No business supplied'}</p></div></div>
-                <div className="mt-5 flex flex-wrap items-center gap-3"><span className="text-[10px] uppercase tracking-[0.16em] text-gold">{review.service}</span><span className="text-xs text-muted-fg">{review.projectDate}</span><div className="flex">{Array.from({ length: 5 }, (_, index) => <Star key={index} className={`h-3.5 w-3.5 text-gold ${index < review.rating ? 'fill-gold' : ''}`} />)}</div></div>
+                <div className="flex flex-wrap items-center gap-3"><img src={review.avatarUrl} alt={review.avatarAlt} className="h-14 w-14 rounded-full border border-accent/35 object-cover" /><div><div className="flex items-center gap-2"><h2 className="font-display text-xl font-bold">{review.clientName}</h2>{review.verified ? <BadgeCheck className="h-4 w-4 text-accent" /> : null}</div><p className="mt-1 text-xs text-muted-fg">{review.email} · {review.business || 'No business supplied'}</p></div></div>
+                <div className="mt-5 flex flex-wrap items-center gap-3"><span className="text-[10px] uppercase tracking-[0.16em] text-accent">{review.service}</span><span className="text-xs text-muted-fg">{review.projectDate}</span><div className="flex">{Array.from({ length: 5 }, (_, index) => <Star key={index} className={`h-3.5 w-3.5 text-accent ${index < review.rating ? 'fill-accent' : ''}`} />)}</div></div>
                 <h3 className="mt-3 font-display text-2xl font-bold">{review.projectTitle}</h3>
                 {review.reviewText ? <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-fg">{review.reviewText}</p> : null}
                 <div className="mt-4 text-xs text-muted-fg">Submitted {new Date(review.submittedAt).toLocaleString()}</div>
@@ -218,28 +218,28 @@ function ModerationDashboard({ user, onLogout }: { user: User; onLogout: () => P
 }
 
 function AdminMetric({ icon: Icon, label, value, detail }: { icon: typeof ImageIcon; label: string; value: string; detail?: string }) {
-  return <div className="border border-line/60 bg-background/50 p-5"><div className="flex items-center justify-between"><Icon className="h-5 w-5 text-gold" /><span className="font-display text-3xl font-bold text-gold">{value}</span></div><div className="mt-5 text-xs uppercase tracking-[0.16em] text-muted-fg">{label}</div>{detail ? <div className="mt-2 text-[10px] text-muted-fg">{detail}</div> : null}</div>
+  return <div className="border border-line/60 bg-background/50 p-5"><div className="flex items-center justify-between"><Icon className="h-5 w-5 text-accent" /><span className="font-display text-3xl font-bold text-accent">{value}</span></div><div className="mt-5 text-xs uppercase tracking-[0.16em] text-muted-fg">{label}</div>{detail ? <div className="mt-2 text-[10px] text-muted-fg">{detail}</div> : null}</div>
 }
 
 function OwnerResponseForm({ reviewId }: { reviewId: string }) {
   const [message, setMessage] = useState('')
-  return <form className="mt-5 flex flex-col gap-2 border-l border-gold/35 pl-4 sm:flex-row" onSubmit={async (event) => {
+  return <form className="mt-5 flex flex-col gap-2 border-l border-accent/35 pl-4 sm:flex-row" onSubmit={async (event) => {
     event.preventDefault()
     const response = await fetch(`/api/reviews/${reviewId}/reply`, { method: 'POST', body: new FormData(event.currentTarget) })
     const result = await response.json() as { message?: string; error?: string }
     setMessage(response.ok ? result.message || 'Response published.' : result.error || 'Response failed.')
     if (response.ok) event.currentTarget.reset()
-  }}><input name="body" required className="review-input mt-0 flex-1" placeholder="Publish an owner response" /><button type="submit" className="border border-gold/35 px-4 py-2 text-[10px] font-semibold uppercase tracking-wider text-gold hover:bg-gold/10">Respond</button>{message ? <span className="self-center text-xs text-gold">{message}</span> : null}</form>
+  }}><input name="body" required className="review-input mt-0 flex-1" placeholder="Publish an owner response" /><button type="submit" className="border border-accent/35 px-4 py-2 text-[10px] font-semibold uppercase tracking-wider text-accent hover:bg-accent/10">Respond</button>{message ? <span className="self-center text-xs text-accent">{message}</span> : null}</form>
 }
 
 function AdminAction({ icon: Icon, label, onClick, disabled, danger = false }: { icon: typeof Check; label: string; onClick: () => void; disabled: boolean; danger?: boolean }) {
-  return <button type="button" onClick={onClick} disabled={disabled} className={`inline-flex items-center gap-2 border px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition-colors disabled:cursor-not-allowed disabled:opacity-35 ${danger ? 'border-rose-400/30 text-rose-300 hover:bg-rose-400/10' : 'border-line text-muted-fg hover:border-gold/40 hover:text-gold'}`}><Icon className="h-3.5 w-3.5" />{label}</button>
+  return <button type="button" onClick={onClick} disabled={disabled} className={`inline-flex items-center gap-2 border px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition-colors disabled:cursor-not-allowed disabled:opacity-35 ${danger ? 'border-orange-400/30 text-orange-300 hover:bg-orange-400/10' : 'border-line text-muted-fg hover:border-accent/40 hover:text-accent'}`}><Icon className="h-3.5 w-3.5" />{label}</button>
 }
 
 function ModerationList({ title, empty, items, approve, reject }: { title: string; empty: string; items: Array<{ id: string; eyebrow: string; body: string; meta: string }>; approve: (id: string) => void; reject?: (id: string) => void }) {
-  return <section className="border border-line/60 bg-background/45 p-5"><h2 className="font-display text-2xl font-bold">{title}</h2><div className="mt-5 space-y-3">{!items.length ? <p className="text-sm text-muted-fg">{empty}</p> : items.map((item) => <div key={item.id} className="border border-line/60 p-4"><div className="text-[10px] uppercase tracking-[0.16em] text-gold">{item.eyebrow}</div><p className="mt-2 text-sm leading-6 text-muted-fg">{item.body}</p><div className="mt-3 text-[10px] text-muted-fg">{item.meta}</div><div className="mt-4 flex gap-2"><button type="button" onClick={() => approve(item.id)} className="border border-gold/35 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-gold hover:bg-gold/10">Approve / Resolve</button>{reject ? <button type="button" onClick={() => reject(item.id)} className="border border-rose-400/25 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-rose-300 hover:bg-rose-400/10">Reject</button> : null}</div></div>)}</div></section>
+  return <section className="border border-line/60 bg-background/45 p-5"><h2 className="font-display text-2xl font-bold">{title}</h2><div className="mt-5 space-y-3">{!items.length ? <p className="text-sm text-muted-fg">{empty}</p> : items.map((item) => <div key={item.id} className="border border-line/60 p-4"><div className="text-[10px] uppercase tracking-[0.16em] text-accent">{item.eyebrow}</div><p className="mt-2 text-sm leading-6 text-muted-fg">{item.body}</p><div className="mt-3 text-[10px] text-muted-fg">{item.meta}</div><div className="mt-4 flex gap-2"><button type="button" onClick={() => approve(item.id)} className="border border-accent/35 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-accent hover:bg-accent/10">Approve / Resolve</button>{reject ? <button type="button" onClick={() => reject(item.id)} className="border border-orange-400/25 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-orange-300 hover:bg-orange-400/10">Reject</button> : null}</div></div>)}</div></section>
 }
 
 function AdminLoading({ label }: { label: string }) {
-  return <div className="flex min-h-[45vh] items-center justify-center gap-3 text-sm text-muted-fg"><LoaderCircle className="h-5 w-5 animate-spin text-gold" /> {label}</div>
+  return <div className="flex min-h-[45vh] items-center justify-center gap-3 text-sm text-muted-fg"><LoaderCircle className="h-5 w-5 animate-spin text-accent" /> {label}</div>
 }

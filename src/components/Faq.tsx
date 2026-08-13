@@ -34,7 +34,7 @@ export function Faq({ items }: FaqProps) {
                 <span className="font-medium text-fg">{item.q}</span>
                 <span
                   aria-hidden="true"
-                  className={`shrink-0 text-xl text-gold transition-transform duration-300 ${
+                  className={`shrink-0 text-xl text-accent transition-transform duration-300 ${
                     isOpen ? 'rotate-45' : ''
                   }`}
                 >

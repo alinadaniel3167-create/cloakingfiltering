@@ -175,7 +175,7 @@ export function FloatingTelegramCta() {
       onPointerUp={stopDragging}
       onPointerCancel={cancelDragging}
       onKeyDown={moveWithKeyboard}
-      className={`group fixed right-3 z-[60] flex h-16 w-16 touch-none select-none items-center justify-center rounded-full border-2 border-gold/70 bg-[#229ed9] text-white shadow-[0_12px_42px_rgba(34,158,217,0.38)] outline-none transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:right-5 ${dragging ? 'cursor-grabbing scale-95' : 'cursor-ns-resize'}`}
+      className={`group fixed right-3 z-[60] flex h-16 w-16 touch-none select-none items-center justify-center rounded-full border-2 border-accent/70 bg-[#229ed9] text-white shadow-[0_12px_42px_rgba(34,158,217,0.38)] outline-none transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:right-5 ${dragging ? 'cursor-grabbing scale-95' : 'cursor-ns-resize'}`}
       style={{ top: position ?? '58vh' }}
     >
       <span className="pointer-events-none absolute right-full mr-3 hidden translate-x-1 whitespace-nowrap border border-line/70 bg-background/95 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-fg opacity-0 shadow-luxury backdrop-blur-xl transition-[opacity,transform] group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 sm:block">
@@ -183,7 +183,7 @@ export function FloatingTelegramCta() {
       </span>
       <span className="absolute inset-1 rounded-full border border-white/25" />
       <TelegramIcon />
-      <span className="absolute right-0.5 top-0.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-emerald-400" />
+      <span className="absolute right-0.5 top-0.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-accent" />
     </a>
   )
 }

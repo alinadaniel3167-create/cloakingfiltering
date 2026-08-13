@@ -22,7 +22,7 @@ export function RoiCalculator() {
   return (
     <div className="grid overflow-hidden border border-line/60 bg-card/70 shadow-luxury lg:grid-cols-2">
       <div className="p-7 sm:p-10">
-        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">Inputs</div>
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Inputs</div>
         <div className="mt-9 space-y-10">
           <Slider
             id="roi-budget"
@@ -50,10 +50,10 @@ export function RoiCalculator() {
           />
         </div>
       </div>
-      <div className="relative flex flex-col justify-center border-t border-line/60 bg-[radial-gradient(circle_at_70%_20%,rgba(238,188,74,.14),transparent_35%),rgba(2,24,63,.36)] p-7 sm:p-10 lg:border-l lg:border-t-0">
-        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">Projection</div>
+      <div className="relative flex flex-col justify-center border-t border-line/60 bg-[radial-gradient(circle_at_70%_20%,rgba(201,242,77,.14),transparent_35%),rgba(26,40,28,.36)] p-7 sm:p-10 lg:border-l lg:border-t-0">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Projection</div>
         <div className="mt-7 text-xs uppercase tracking-[0.18em] text-muted-fg">Projected Monthly Revenue</div>
-        <div className="mt-2 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-none text-gold-gradient">{money(projection.revenue)}</div>
+        <div className="mt-2 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold leading-none text-accent-gradient">{money(projection.revenue)}</div>
         <div className="mt-9 grid grid-cols-2 gap-6 border-t border-line/60 pt-7">
           <div><div className="text-xs text-muted-fg">Net Profit</div><div className="mt-1 font-display text-2xl font-bold">{money(projection.profit)}</div></div>
           <div><div className="text-xs text-muted-fg">Annualized</div><div className="mt-1 font-display text-2xl font-bold">{money(projection.annual)}</div></div>
@@ -68,8 +68,8 @@ function Slider({ id, label, value, min, max, step, display, minLabel, maxLabel,
   const percentage = ((value - min) / (max - min)) * 100
   return (
     <div>
-      <div className="mb-3 flex items-end justify-between gap-4"><label htmlFor={id} className="text-sm text-muted-fg">{label}</label><span className="font-display text-2xl font-bold text-gold">{display}</span></div>
-      <input id={id} aria-label={label} type="range" min={min} max={max} step={step} value={value} onChange={(event) => onChange(Number(event.target.value))} className="h-1.5 w-full cursor-pointer appearance-none outline-none focus-visible:ring-2 focus-visible:ring-gold/50 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-gold [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gold" style={{ background: `linear-gradient(90deg, #eebc4a ${percentage}%, #142234 ${percentage}%)` }} />
+      <div className="mb-3 flex items-end justify-between gap-4"><label htmlFor={id} className="text-sm text-muted-fg">{label}</label><span className="font-display text-2xl font-bold text-accent">{display}</span></div>
+      <input id={id} aria-label={label} type="range" min={min} max={max} step={step} value={value} onChange={(event) => onChange(Number(event.target.value))} className="h-1.5 w-full cursor-pointer appearance-none outline-none focus-visible:ring-2 focus-visible:ring-accent/50 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-accent [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-accent" style={{ background: `linear-gradient(90deg, #c9f24d ${percentage}%, #242c26 ${percentage}%)` }} />
       <div className="mt-2 flex justify-between text-[10px] uppercase tracking-wider text-muted-fg"><span>{minLabel}</span><span>{maxLabel}</span></div>
     </div>
   )
