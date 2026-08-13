@@ -4,7 +4,7 @@ import { ProofGallery } from '@/components/ProofGallery'
 import { Reveal } from '@/components/Reveal'
 import { SectionTitle } from '@/components/SectionTitle'
 import { SITE_URL, TELEGRAM_URL } from '@/lib/site'
-import { workArchive, workCategories } from '@/lib/work-archive'
+import { workArchive, workCategories, workPlatforms } from '@/lib/work-archive'
 
 export const Route = createFileRoute('/proof')({
   head: () => ({
@@ -13,7 +13,7 @@ export const Route = createFileRoute('/proof')({
       {
         name: 'description',
         content:
-          'Unretouched platform screenshots from delivered work: Google Ads and Meta campaign builds, push and native network buying, Keitaro click-level tracking, DNS and tracker infrastructure, Shopify storefronts and catalogue SEO.',
+          'Unretouched platform screenshots from delivered work: Google Ads and Meta campaign builds, push and native network buying, keyword and conversion tracking setup, Keitaro click-level tracking, antidetect browser and proxy isolation, DNS and tracker infrastructure, Shopify storefronts, catalogue SEO and Search Console performance.',
       },
       { property: 'og:title', content: 'Working Archive — Trustman Kareem' },
       {
@@ -49,7 +49,7 @@ export const Route = createFileRoute('/proof')({
 })
 
 const summary = [
-  { label: 'Platforms', value: '9' },
+  { label: 'Platforms', value: String(workPlatforms.length) },
   { label: 'Captures', value: String(workArchive.length) },
   { label: 'Disciplines', value: String(workCategories.length) },
 ]
@@ -66,7 +66,7 @@ function Proof() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-fg">
                 Most portfolios in this industry show rendered dashboards. These are screen captures from live accounts —
                 campaign tables mid-flight, click logs with the geo columns still open, DNS records mid-propagation.
-                Client names and server addresses are cropped or redacted; nothing else is retouched.
+                Client names, server addresses and licence keys are cropped or blacked out; nothing else is retouched.
               </p>
               <dl className="mt-9 flex flex-wrap gap-px border border-line/60 bg-line/60">
                 {summary.map(item => (

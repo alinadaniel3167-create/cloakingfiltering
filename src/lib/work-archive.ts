@@ -118,6 +118,78 @@ export const workArchive: WorkItem[] = [
     ],
   },
   {
+    slug: 'google-ads-keyword-depth',
+    image: '/work/google-ads-keyword-depth.jpg',
+    width: 528,
+    height: 1478,
+    alt: 'Google Ads search keywords report listing twenty account-recovery keywords with status, clicks and cost, totalling 5.5 thousand clicks and $24.4 thousand spend',
+    title: 'Twenty keywords, read one at a time',
+    platform: 'Google Ads',
+    category: 'Paid Media',
+    period: 'All time',
+    caption:
+      'The whole keyword table from a US, CA and AU build, scrolled end to end and rejoined into a single view. Paused terms are left sitting next to eligible ones on purpose — a keyword that stopped serving still spent, and dropping it flatters the average. Account and campaign labels are stripped out of the left column.',
+    metrics: [
+      { label: 'Spend', value: '$24.4K' },
+      { label: 'Clicks', value: '5.5K' },
+      { label: 'Keywords', value: '20' },
+    ],
+  },
+  {
+    slug: 'google-ads-account-overview',
+    image: '/work/google-ads-account-overview.jpg',
+    width: 1400,
+    height: 783,
+    alt: 'Google Ads overview showing five email-security keywords at zero cost next to a search ad preview',
+    title: 'A campaign before it spends anything',
+    platform: 'Google Ads',
+    category: 'Paid Media',
+    period: 'Mar–Apr 2026',
+    caption:
+      'Keyword set and ad copy staged against a column of $0.00. Everything reads zero because nothing has served yet, and that is the state a build is worth reviewing in — copy and landing promise can still be changed for free. The display URL is redacted.',
+    metrics: [
+      { label: 'Date range', value: 'Mar 11 – Apr 6' },
+      { label: 'Ad groups', value: '1' },
+      { label: 'Served', value: 'Not yet' },
+    ],
+  },
+  {
+    slug: 'google-ads-safety-campaign',
+    image: '/work/google-ads-safety-campaign.jpg',
+    width: 1400,
+    height: 816,
+    alt: 'Google Ads campaign detail card showing a search campaign on a $25 total budget with maximize-clicks bidding and a 79.3 percent optimization score',
+    title: 'Opening budget held at $25',
+    platform: 'Google Ads',
+    category: 'Paid Media',
+    period: 'Apr 2026',
+    caption:
+      'A search campaign in bid-strategy learning on a $25 total budget. The optimization score sits at 79.3% and stays there — closing the last twenty points means taking Google’s recommendations wholesale, and most of them widen targeting rather than sharpen it.',
+    metrics: [
+      { label: 'Budget', value: '$25 total' },
+      { label: 'Bidding', value: 'Maximize clicks' },
+      { label: 'Optimization', value: '79.3%' },
+    ],
+  },
+  {
+    slug: 'keyword-volume-research',
+    image: '/work/keyword-volume-research.jpg',
+    width: 1000,
+    height: 1417,
+    alt: 'Keyword research table of crypto search terms with monthly volumes from 165,000 down to 49,500, above an ad copy template section',
+    title: 'Volume first, then the ad copy',
+    platform: 'Keyword research',
+    category: 'Paid Media',
+    period: 'Planning',
+    caption:
+      'Eleven crypto terms sized by monthly volume before a single headline gets written. “Crypto wallets” at 165K carries a different intent to “best crypto to buy now” at 60.5K, and one ad cannot serve both — so the copy set is drafted per intent tier, not per campaign.',
+    metrics: [
+      { label: 'Top term', value: '165K / mo' },
+      { label: 'Terms sized', value: '11' },
+      { label: 'Output', value: 'Ad copy set' },
+    ],
+  },
+  {
     slug: 'keitaro-clicks-log',
     image: '/work/keitaro-clicks-log.jpg',
     width: 1400,
@@ -160,6 +232,54 @@ export const workArchive: WorkItem[] = [
     period: 'Live',
     caption:
       'NS records delegating the campaign domain to DigitalOcean so records move on my schedule instead of the registrar’s — with MX preserved first, because pointing nameservers before mail records is how a domain loses its email.',
+  },
+  {
+    slug: 'conversion-tracking-setup',
+    image: '/work/conversion-tracking-setup.jpg',
+    width: 1400,
+    height: 789,
+    alt: 'Google Ads conversion setup panel showing a created conversion action with an unverified page-view tag and tag installation options',
+    title: 'Conversion action before first click',
+    platform: 'Google Ads',
+    category: 'Tracking & Infrastructure',
+    period: 'Apr 2026',
+    caption:
+      'The conversion action exists, the page-view tag is not yet verified, and the ad is enabled at zero impressions. Order matters here — a campaign that starts serving before its tag reports has already bought data it cannot read.',
+  },
+  {
+    slug: 'adspower-proxy-profiles',
+    image: '/work/adspower-proxy-profiles.jpg',
+    width: 1400,
+    height: 1196,
+    alt: 'AdsPower antidetect browser proxy manager showing one static ISP proxy bound to a profile, with the proxy address blacked out',
+    title: 'One profile, one static ISP proxy',
+    platform: 'AdsPower',
+    category: 'Tracking & Infrastructure',
+    period: 'Apr 2026',
+    caption:
+      'Profile isolation in an antidetect browser with a single static ISP proxy bound to it, the datacenter and imported pools deliberately empty — an exit address that changes every session is a fingerprint of its own. The proxy address and the account label are blacked out.',
+    metrics: [
+      { label: 'Profiles', value: '1 / 12' },
+      { label: 'Static ISP', value: '1' },
+      { label: 'Datacenter', value: '0' },
+    ],
+  },
+  {
+    slug: 'keitaro-license',
+    image: '/work/keitaro-license.jpg',
+    width: 1400,
+    height: 772,
+    alt: 'Keitaro account licenses page showing an Expert edition license valid to August 2026, with the key and account email blacked out',
+    title: 'Keitaro Expert, licensed and current',
+    platform: 'Keitaro',
+    category: 'Tracking & Infrastructure',
+    period: 'Valid to Aug 2026',
+    caption:
+      'The tracker behind the click logs, running on a paid Expert licence rather than a shared or cracked install. The key and account email are blacked out — a licence key is a credential, and what this page is here to show is the edition and the expiry.',
+    metrics: [
+      { label: 'Edition', value: 'Expert' },
+      { label: 'Expires', value: 'Aug 4, 2026' },
+    ],
   },
   {
     slug: 'grooming-store-build',
@@ -205,9 +325,54 @@ export const workArchive: WorkItem[] = [
     caption:
       'Property verified through the domain name provider rather than by file upload, so verification survives a theme change, a replatform, or anyone clearing the storefront root.',
   },
+  {
+    slug: 'search-console-performance',
+    image: '/work/search-console-performance.jpg',
+    width: 1280,
+    height: 662,
+    alt: 'Google Search Console performance report over three months showing 988 thousand clicks, 6.21 million impressions, 15.9 percent average CTR and average position 8.3',
+    title: '988K clicks across three months',
+    platform: 'Google Search Console',
+    category: 'Store & SEO',
+    period: 'Feb–May 2026',
+    caption:
+      'Three months of organic search on one property. The interesting pair is the last two tiles: holding a 15.9% average CTR from average position 8.3 means the titles and descriptions are earning clicks the ranking on its own would not.',
+    metrics: [
+      { label: 'Clicks', value: '988K' },
+      { label: 'Impressions', value: '6.21M' },
+      { label: 'Avg. CTR', value: '15.9%' },
+    ],
+  },
+  {
+    slug: 'client-sales-milestone',
+    image: '/work/client-sales-milestone.jpg',
+    width: 1024,
+    height: 1461,
+    alt: 'Shopify dashboard showing 4,140 sessions and $43,600.90 in total sales, shared in a Telegram message reporting a sales milestone',
+    title: 'A client reporting $43.6K back',
+    platform: 'Shopify · Telegram',
+    category: 'Store & SEO',
+    period: '2026',
+    caption:
+      'The client’s own Shopify dashboard, sent over as it happened — 4,140 sessions against $43,600.90 in total sales, twenty people on the store at that moment. Their name and handle are cropped out; the numbers and the message are theirs, unedited.',
+    metrics: [
+      { label: 'Total sales', value: '$43,600.90' },
+      { label: 'Sessions', value: '4,140' },
+      { label: 'Live visitors', value: '20' },
+    ],
+  },
 ]
 
 export const workByCategory = (category: WorkCategory) => workArchive.filter(item => item.category === category)
+
+/**
+ * Distinct tools across the archive. Derived rather than counted by hand so the
+ * figure on /proof cannot drift as entries are added; `platform` may name more
+ * than one tool, separated by "·".
+ */
+export const workPlatforms = [
+  ...new Set(workArchive.flatMap(item => item.platform.split('·').map(name => name.trim()))),
+]
 
 /**
  * The four used for the home-page strip. Picked by hand rather than sliced off
