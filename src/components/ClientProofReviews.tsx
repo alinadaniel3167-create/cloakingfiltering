@@ -141,11 +141,11 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
         <Reveal>
           <div className="grid gap-8 lg:grid-cols-[1fr_.78fr] lg:items-end">
             <div>
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-gold">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-accent">
                 <ShieldCheck className="h-4 w-4" /> Client proof
               </div>
               <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
-                Proof that can be <span className="text-gradient-gold">inspected.</span>
+                Proof that can be <span className="text-accent-gradient">inspected.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-fg">
                 Every published review passes private moderation. Verified submissions connect a real client photo, service timeline, and project evidence without exposing sensitive campaign data.
@@ -155,14 +155,14 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
               <button type="button" onClick={() => setFormOpen(true)} className="luxury-button">
                 <Camera className="h-4 w-4" /> Add your proof review
               </button>
-              <a href="#review-feed" className="inline-flex items-center justify-center gap-2 border border-line/80 bg-background/45 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-fg transition-colors hover:border-gold/50 hover:text-gold">
+              <a href="#review-feed" className="inline-flex items-center justify-center gap-2 border border-line/80 bg-background/45 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-fg transition-colors hover:border-accent/50 hover:text-accent">
                 Browse proof <ChevronRight className="h-4 w-4" />
               </a>
             </div>
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-px overflow-hidden border border-gold/20 bg-gold/20 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-px overflow-hidden border border-accent/20 bg-accent/20 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:grid-cols-2 lg:grid-cols-4">
           <ProofMetric icon={Star} value={portfolioProof.averageRating} label="Average rating" detail={`Across ${portfolioProof.ratingCount} client ratings`} featured />
           <ProofMetric icon={BadgeCheck} value={String(portfolioProof.verifiedClients)} label="Verified clients" detail="Email and project checked" />
           <ProofMetric icon={ImageIcon} value={String(portfolioProof.proofBackedProjects)} label="Proof-backed" detail="Optimized image evidence" />
@@ -172,8 +172,8 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
           <div className="mt-px grid gap-px border border-line/60 bg-line/60 sm:grid-cols-5">
             {[5, 4, 3, 2, 1].map((star) => (
               <div key={star} className="flex items-center gap-3 bg-background/70 px-4 py-3 text-xs text-muted-fg">
-                <span className="flex items-center gap-1 text-gold">{star}<Star className="h-3 w-3 fill-gold" /></span>
-                <progress aria-label={`${star} star reviews`} value={stats.distribution[String(star) as keyof typeof stats.distribution]} max={stats.total} className="h-1.5 min-w-0 flex-1 accent-gold" />
+                <span className="flex items-center gap-1 text-accent">{star}<Star className="h-3 w-3 fill-accent" /></span>
+                <progress aria-label={`${star} star reviews`} value={stats.distribution[String(star) as keyof typeof stats.distribution]} max={stats.total} className="h-1.5 min-w-0 flex-1 accent-accent" />
                 <span>{stats.distribution[String(star) as keyof typeof stats.distribution]}</span>
               </div>
             ))}
@@ -183,7 +183,7 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
         <div id="review-feed" className="mt-14 scroll-mt-28">
           <div className="flex flex-col gap-5 border-y border-line/60 py-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-3">
-              <BarChart3 className="h-5 w-5 text-gold" />
+              <BarChart3 className="h-5 w-5 text-accent" />
               <div>
                 <h3 className="font-display text-xl font-bold">Verified review feed</h3>
                 <p className="mt-1 text-xs text-muted-fg">Filter by project type, rating, or verification status.</p>
@@ -214,7 +214,7 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
 
           {loading ? <ReviewSkeleton /> : null}
           {!loading && loadError ? (
-            <div className="mt-8 flex items-center gap-3 border border-rose-400/20 bg-rose-400/5 p-5 text-sm text-rose-200">
+            <div className="mt-8 flex items-center gap-3 border border-orange-400/20 bg-orange-400/5 p-5 text-sm text-orange-200">
               <CircleAlert className="h-5 w-5" /> {loadError}
             </div>
           ) : null}
@@ -247,15 +247,15 @@ export function ClientProofReviews({ legacyTestimonials }: { legacyTestimonials:
 
 function ProofMetric({ icon: Icon, value, label, detail, featured = false }: { icon: typeof Star; value: string; label: string; detail: string; featured?: boolean }) {
   return (
-    <div className={`group relative min-h-44 overflow-hidden p-5 sm:p-6 ${featured ? 'bg-[radial-gradient(circle_at_85%_10%,rgba(238,188,74,0.18),transparent_42%),rgba(2,10,24,0.9)]' : 'bg-background/80'}`}>
-      <div className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
+    <div className={`group relative min-h-44 overflow-hidden p-5 sm:p-6 ${featured ? 'bg-[radial-gradient(circle_at_85%_10%,rgba(201,242,77,0.18),transparent_42%),rgba(12,17,14,0.9)]' : 'bg-background/80'}`}>
+      <div className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
       <div className="flex items-start justify-between gap-4">
-        <span className="flex h-10 w-10 items-center justify-center border border-gold/25 bg-gold/5 text-gold transition-transform duration-300 group-hover:-translate-y-0.5"><Icon className="h-4.5 w-4.5" /></span>
-        <span className={`font-display font-bold leading-none text-gold ${value.length > 5 ? 'text-2xl' : 'text-4xl'}`}>{value}</span>
+        <span className="flex h-10 w-10 items-center justify-center border border-accent/25 bg-accent/5 text-accent transition-transform duration-300 group-hover:-translate-y-0.5"><Icon className="h-4.5 w-4.5" /></span>
+        <span className={`font-display font-bold leading-none text-accent ${value.length > 5 ? 'text-2xl' : 'text-4xl'}`}>{value}</span>
       </div>
       <div className="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-fg">{label}</div>
       <div className="mt-2 text-xs leading-5 text-muted-fg">{detail}</div>
-      {featured ? <div className="mt-3 flex gap-1" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, index) => <Star key={index} className="h-3 w-3 fill-gold text-gold" />)}</div> : null}
+      {featured ? <div className="mt-3 flex gap-1" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, (_, index) => <Star key={index} className="h-3 w-3 fill-accent text-accent" />)}</div> : null}
     </div>
   )
 }
@@ -286,9 +286,9 @@ function ReviewCard({ review, onChanged }: { review: PublicReview; onChanged: ()
   }
 
   return (
-    <article className={`flex h-full flex-col border bg-background/55 p-5 transition-colors hover:border-gold/35 sm:p-6 ${review.featured ? 'border-gold/45 shadow-glow' : 'border-line/60'}`}>
+    <article className={`flex h-full flex-col border bg-background/55 p-5 transition-colors hover:border-accent/35 sm:p-6 ${review.featured ? 'border-accent/45 shadow-glow' : 'border-line/60'}`}>
       <div className="flex items-start gap-4">
-        <img src={review.avatarUrl} alt={review.avatarAlt} width={64} height={64} loading="lazy" className="h-16 w-16 shrink-0 rounded-full border border-gold/35 object-cover" />
+        <img src={review.avatarUrl} alt={review.avatarAlt} width={64} height={64} loading="lazy" className="h-16 w-16 shrink-0 rounded-full border border-accent/35 object-cover" />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="truncate font-display text-lg font-bold">{review.clientName}</h3>
@@ -301,7 +301,7 @@ function ReviewCard({ review, onChanged }: { review: PublicReview; onChanged: ()
       </div>
 
       <div className="mt-5 border-y border-line/60 py-4">
-        <div className="text-[10px] uppercase tracking-[0.18em] text-gold">{review.service}</div>
+        <div className="text-[10px] uppercase tracking-[0.18em] text-accent">{review.service}</div>
         <h4 className="mt-2 font-display text-xl font-bold">{review.projectTitle}</h4>
         {review.reviewText ? <p className="mt-3 text-sm leading-6 text-muted-fg">“{review.reviewText}”</p> : null}
         <div className="mt-4 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.12em] text-muted-fg">
@@ -317,15 +317,15 @@ function ReviewCard({ review, onChanged }: { review: PublicReview; onChanged: ()
             <button key={media.id} type="button" onClick={() => setLightbox(index)} className="group relative aspect-[4/3] overflow-hidden border border-line/60 bg-secondary/30 text-left">
               <img src={media.url} alt={media.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <span className="absolute inset-x-0 bottom-0 bg-background/85 px-2 py-1 text-[8px] uppercase tracking-wider text-fg opacity-0 transition-opacity group-hover:opacity-100">{media.category}</span>
-              {index === 2 && review.media.length > 3 ? <span className="absolute inset-0 flex items-center justify-center bg-background/70 font-display text-xl font-bold text-gold">+{review.media.length - 3}</span> : null}
+              {index === 2 && review.media.length > 3 ? <span className="absolute inset-0 flex items-center justify-center bg-background/70 font-display text-xl font-bold text-accent">+{review.media.length - 3}</span> : null}
             </button>
           ))}
         </div>
       ) : null}
 
       {review.replies.map((reply) => (
-        <div key={reply.id} className="mt-5 border-l-2 border-gold/45 bg-gold/5 p-4">
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.14em] text-gold">{reply.isOwner ? <BadgeCheck className="h-3.5 w-3.5" /> : null}{reply.authorName}</div>
+        <div key={reply.id} className="mt-5 border-l-2 border-accent/45 bg-accent/5 p-4">
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.14em] text-accent">{reply.isOwner ? <BadgeCheck className="h-3.5 w-3.5" /> : null}{reply.authorName}</div>
           <p className="mt-2 text-sm leading-6 text-muted-fg">{reply.body}</p>
         </div>
       ))}
@@ -338,22 +338,22 @@ function ReviewCard({ review, onChanged }: { review: PublicReview; onChanged: ()
       </div>
       {replyOpen ? <InlineActionForm endpoint={`/api/reviews/${review.id}/reply`} fields={[['authorName', 'Your name'], ['body', 'Add a respectful reply']]} onDone={(message) => { setNotice(message); setReplyOpen(false) }} /> : null}
       {reportOpen ? <InlineActionForm endpoint={`/api/reviews/${review.id}/report`} fields={[['reason', 'Why should this be reviewed?']]} onDone={() => { setNotice('Report received for moderation.'); setReportOpen(false) }} /> : null}
-      {notice ? <p role="status" className="mt-3 text-xs text-gold">{notice}</p> : null}
+      {notice ? <p role="status" className="mt-3 text-xs text-accent">{notice}</p> : null}
       {lightbox !== null ? <Lightbox review={review} startIndex={lightbox} onClose={() => setLightbox(null)} /> : null}
     </article>
   )
 }
 
 function TrustBadge({ icon: Icon, label }: { icon: typeof BadgeCheck; label: string }) {
-  return <span className="inline-flex items-center gap-1 border border-gold/25 bg-gold/8 px-1.5 py-1 text-[8px] uppercase tracking-[0.12em] text-gold"><Icon className="h-3 w-3" />{label}</span>
+  return <span className="inline-flex items-center gap-1 border border-accent/25 bg-accent/8 px-1.5 py-1 text-[8px] uppercase tracking-[0.12em] text-accent"><Icon className="h-3 w-3" />{label}</span>
 }
 
 function Stars({ rating, interactive = false, onChange }: { rating: number; interactive?: boolean; onChange?: (rating: number) => void }) {
   return (
     <div className="flex gap-1" role={interactive ? 'radiogroup' : undefined} aria-label={interactive ? 'Star rating' : `${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, index) => index + 1).map((star) => interactive ? (
-        <button key={star} type="button" role="radio" aria-checked={rating === star} aria-label={`${star} stars`} onClick={() => onChange?.(star)} className="p-1 text-gold transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"><Star className={`h-7 w-7 ${star <= rating ? 'fill-gold' : 'fill-transparent'}`} /></button>
-      ) : <Star key={star} className={`h-3.5 w-3.5 text-gold ${star <= rating ? 'fill-gold' : 'fill-transparent'}`} />)}
+        <button key={star} type="button" role="radio" aria-checked={rating === star} aria-label={`${star} stars`} onClick={() => onChange?.(star)} className="p-1 text-accent transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><Star className={`h-7 w-7 ${star <= rating ? 'fill-accent' : 'fill-transparent'}`} /></button>
+      ) : <Star key={star} className={`h-3.5 w-3.5 text-accent ${star <= rating ? 'fill-accent' : 'fill-transparent'}`} />)}
     </div>
   )
 }
@@ -365,17 +365,17 @@ function LegacyProof({ testimonials, service, minimumRating, verifiedOnly, onSub
   if (!filteredTestimonials.length) return <EmptyReviewState title="No feedback matches these filters" body={verifiedOnly ? 'The portfolio archive is kept separate from the verified feed. Choose all verification statuses or submit the first verified review.' : 'Try another project type or rating, or add a new proof-backed review.'} onSubmit={onSubmit} />
   return (
     <div className="mt-8">
-      <div className="mb-5 flex flex-col gap-2 border-l border-gold/40 pl-4 sm:flex-row sm:items-end sm:justify-between">
-        <div><div className="text-[10px] uppercase tracking-[0.2em] text-gold">Portfolio feedback archive</div><p className="mt-1 text-xs text-muted-fg">A varied selection of client statements aligned with the services above.</p></div>
+      <div className="mb-5 flex flex-col gap-2 border-l border-accent/40 pl-4 sm:flex-row sm:items-end sm:justify-between">
+        <div><div className="text-[10px] uppercase tracking-[0.2em] text-accent">Portfolio feedback archive</div><p className="mt-1 text-xs text-muted-fg">A varied selection of client statements aligned with the services above.</p></div>
         <div className="text-[10px] uppercase tracking-[0.18em] text-muted-fg">Showing {filteredTestimonials.length} of 50 ratings</div>
       </div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {filteredTestimonials.map((testimonial) => (
-          <figure key={testimonial.name} className="group flex h-full flex-col border border-line/60 bg-background/50 p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-gold/35">
+          <figure key={testimonial.name} className="group flex h-full flex-col border border-line/60 bg-background/50 p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-accent/35">
             <div className="flex items-center justify-between gap-3"><Stars rating={testimonial.rating} /><span className="border border-line/70 px-2 py-1 text-[9px] uppercase tracking-[0.14em] text-muted-fg">Portfolio record</span></div>
-            <div className="mt-5 text-[10px] uppercase tracking-[0.18em] text-gold">{testimonial.service}</div>
+            <div className="mt-5 text-[10px] uppercase tracking-[0.18em] text-accent">{testimonial.service}</div>
             <blockquote className="mt-5 font-display text-xl leading-relaxed">“{testimonial.quote}”</blockquote>
-            <figcaption className="mt-auto flex flex-wrap items-end justify-between gap-4 border-t border-line/60 pt-5"><div><div className="font-semibold">{testimonial.name}</div><div className="mt-1 text-sm text-muted-fg">{testimonial.role}</div></div><div className="text-sm font-bold text-gold">{testimonial.result}</div></figcaption>
+            <figcaption className="mt-auto flex flex-wrap items-end justify-between gap-4 border-t border-line/60 pt-5"><div><div className="font-semibold">{testimonial.name}</div><div className="mt-1 text-sm text-muted-fg">{testimonial.role}</div></div><div className="text-sm font-bold text-accent">{testimonial.result}</div></figcaption>
           </figure>
         ))}
       </div>
@@ -385,11 +385,11 @@ function LegacyProof({ testimonials, service, minimumRating, verifiedOnly, onSub
 }
 
 function EmptyReviewState({ title, body, onSubmit }: { title: string; body: string; onSubmit: () => void }) {
-  return <div className="mt-8 border border-dashed border-line bg-background/35 px-6 py-14 text-center"><ImageIcon className="mx-auto h-8 w-8 text-gold/70" /><h3 className="mt-5 font-display text-2xl font-bold">{title}</h3><p className="mx-auto mt-3 max-w-md text-sm leading-6 text-muted-fg">{body}</p><button type="button" onClick={onSubmit} className="luxury-button mt-6"><UploadCloud className="h-4 w-4" /> Add proof</button></div>
+  return <div className="mt-8 border border-dashed border-line bg-background/35 px-6 py-14 text-center"><ImageIcon className="mx-auto h-8 w-8 text-accent/70" /><h3 className="mt-5 font-display text-2xl font-bold">{title}</h3><p className="mx-auto mt-3 max-w-md text-sm leading-6 text-muted-fg">{body}</p><button type="button" onClick={onSubmit} className="luxury-button mt-6"><UploadCloud className="h-4 w-4" /> Add proof</button></div>
 }
 
 function ReviewSkeleton() {
-  return <div className="mt-8 grid gap-5 lg:grid-cols-3">{Array.from({ length: 3 }).map((_, index) => <div key={index} className="h-[430px] animate-pulse border border-line/60 bg-[linear-gradient(110deg,rgba(16,30,52,.45),rgba(28,45,70,.55),rgba(16,30,52,.45))]" />)}</div>
+  return <div className="mt-8 grid gap-5 lg:grid-cols-3">{Array.from({ length: 3 }).map((_, index) => <div key={index} className="h-[430px] animate-pulse border border-line/60 bg-[linear-gradient(110deg,rgba(20,26,22,.45),rgba(32,42,34,.55),rgba(20,26,22,.45))]" />)}</div>
 }
 
 function ReviewSubmissionDialog({ onClose, onSubmitted }: { onClose: () => void; onSubmitted: () => Promise<void> }) {
@@ -458,14 +458,14 @@ function ReviewSubmissionDialog({ onClose, onSubmitted }: { onClose: () => void;
 
   return (
     <div className="fixed inset-0 z-[80] overflow-y-auto bg-background/92 p-3 backdrop-blur-xl sm:p-6" role="dialog" aria-modal="true" aria-labelledby={titleId}>
-      <div className="mx-auto my-4 max-w-5xl border border-gold/25 bg-[#050b16] shadow-luxury sm:my-8">
-        <div className="sticky top-0 z-10 flex items-start justify-between border-b border-line/70 bg-[#050b16]/95 p-5 backdrop-blur sm:p-7">
-          <div><div className="text-[10px] uppercase tracking-[0.22em] text-gold">Private submission portal</div><h2 id={titleId} className="mt-2 font-display text-2xl font-bold sm:text-3xl">Add your client proof review</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-muted-fg">Uploads are optimized, stripped of embedded metadata, and held privately until approval.</p></div>
-          <button type="button" onClick={onClose} className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-muted-fg transition-colors hover:border-gold/50 hover:text-gold" aria-label="Close review form"><X className="h-5 w-5" /></button>
+      <div className="mx-auto my-4 max-w-5xl border border-accent/25 bg-[#101613] shadow-luxury sm:my-8">
+        <div className="sticky top-0 z-10 flex items-start justify-between border-b border-line/70 bg-[#101613]/95 p-5 backdrop-blur sm:p-7">
+          <div><div className="text-[10px] uppercase tracking-[0.22em] text-accent">Private submission portal</div><h2 id={titleId} className="mt-2 font-display text-2xl font-bold sm:text-3xl">Add your client proof review</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-muted-fg">Uploads are optimized, stripped of embedded metadata, and held privately until approval.</p></div>
+          <button type="button" onClick={onClose} className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-muted-fg transition-colors hover:border-accent/50 hover:text-accent" aria-label="Close review form"><X className="h-5 w-5" /></button>
         </div>
 
         {status === 'done' ? (
-          <div className="px-6 py-20 text-center sm:px-10"><BadgeCheck className="mx-auto h-12 w-12 text-gold" /><h3 className="mt-6 font-display text-3xl font-bold">Submission secured.</h3><p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-muted-fg">{message}</p><button type="button" onClick={onClose} className="luxury-button mt-8">Return to client proof</button></div>
+          <div className="px-6 py-20 text-center sm:px-10"><BadgeCheck className="mx-auto h-12 w-12 text-accent" /><h3 className="mt-6 font-display text-3xl font-bold">Submission secured.</h3><p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-muted-fg">{message}</p><button type="button" onClick={onClose} className="luxury-button mt-8">Return to client proof</button></div>
         ) : (
           <form onSubmit={(event) => void submit(event)} className="grid gap-8 p-5 sm:p-7 lg:grid-cols-[1fr_.85fr]">
             <div className="space-y-5">
@@ -491,7 +491,7 @@ function ReviewSubmissionDialog({ onClose, onSubmitted }: { onClose: () => void;
               <FormSection number="03" title="Photo and proof">
                 <input ref={avatarInput} type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={(event) => setAvatarFile(event.target.files?.[0])} />
                 <button type="button" onClick={() => avatarInput.current?.click()} className="review-dropzone w-full">
-                  {avatar ? <img src={avatar.preview} alt="Client photo preview" className="mx-auto h-24 w-24 rounded-full border border-gold/40 object-cover" /> : <Camera className="mx-auto h-8 w-8 text-gold" />}
+                  {avatar ? <img src={avatar.preview} alt="Client photo preview" className="mx-auto h-24 w-24 rounded-full border border-accent/40 object-cover" /> : <Camera className="mx-auto h-8 w-8 text-accent" />}
                   <span className="mt-4 block font-semibold">{avatar ? 'Replace client photo' : 'Upload client photo'}</span>
                   <span className="mt-1 block text-xs text-muted-fg">JPG, PNG, or WebP · 2MB maximum</span>
                 </button>
@@ -503,21 +503,21 @@ function ReviewSubmissionDialog({ onClose, onSubmitted }: { onClose: () => void;
                   onDragOver={(event) => event.preventDefault()}
                   onDrop={(event) => { event.preventDefault(); addProofFiles(event.dataTransfer.files) }}
                 >
-                  <UploadCloud className="mx-auto h-8 w-8 text-gold" /><span className="mt-4 block font-semibold">Drop project proof here</span><span className="mt-1 block text-xs text-muted-fg">Up to 5 images · 5MB each</span><button type="button" onClick={() => proofInput.current?.click()} className="mt-4 border border-gold/35 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold hover:bg-gold/10">Choose files</button>
+                  <UploadCloud className="mx-auto h-8 w-8 text-accent" /><span className="mt-4 block font-semibold">Drop project proof here</span><span className="mt-1 block text-xs text-muted-fg">Up to 5 images · 5MB each</span><button type="button" onClick={() => proofInput.current?.click()} className="mt-4 border border-accent/35 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent/10">Choose files</button>
                 </div>
                 <div className="space-y-3">
                   {proofs.map((proof, index) => (
                     <div key={`${proof.file.name}-${index}`} className="grid gap-3 border border-line/60 bg-background/45 p-3 sm:grid-cols-[72px_1fr_auto]">
                       <img src={proof.preview} alt="Proof preview" className="h-[72px] w-[72px] object-cover" />
                       <div className="space-y-2"><input value={proof.alt} onChange={(event) => setProofs((items) => items.map((item, itemIndex) => itemIndex === index ? { ...item, alt: event.target.value } : item))} className="review-input py-2" placeholder="Describe this image for accessibility" /><select value={proof.category} onChange={(event) => setProofs((items) => items.map((item, itemIndex) => itemIndex === index ? { ...item, category: event.target.value } : item))} className="review-input py-2">{PROOF_CATEGORIES.map((item) => <option key={item}>{item}</option>)}</select></div>
-                      <button type="button" onClick={() => { URL.revokeObjectURL(proof.preview); setProofs((items) => items.filter((_, itemIndex) => itemIndex !== index)) }} className="h-9 w-9 text-muted-fg hover:text-rose-300" aria-label={`Remove ${proof.file.name}`}><X className="h-4 w-4" /></button>
+                      <button type="button" onClick={() => { URL.revokeObjectURL(proof.preview); setProofs((items) => items.filter((_, itemIndex) => itemIndex !== index)) }} className="h-9 w-9 text-muted-fg hover:text-orange-300" aria-label={`Remove ${proof.file.name}`}><X className="h-4 w-4" /></button>
                     </div>
                   ))}
                 </div>
               </FormSection>
 
-              <label className="flex items-start gap-3 border border-line/60 bg-background/45 p-4 text-xs leading-5 text-muted-fg"><input type="checkbox" name="consent" required className="mt-1 accent-gold" /><span>I confirm this is my authentic experience and consent to publication of my name, photo, rating, review, and uploaded proof after moderation. Private email and technical metadata are never published.</span></label>
-              {message ? <div role="alert" className={`border p-4 text-sm ${status === 'error' ? 'border-rose-400/25 bg-rose-400/5 text-rose-200' : 'border-gold/25 bg-gold/5 text-gold'}`}>{message}</div> : null}
+              <label className="flex items-start gap-3 border border-line/60 bg-background/45 p-4 text-xs leading-5 text-muted-fg"><input type="checkbox" name="consent" required className="mt-1 accent-accent" /><span>I confirm this is my authentic experience and consent to publication of my name, photo, rating, review, and uploaded proof after moderation. Private email and technical metadata are never published.</span></label>
+              {message ? <div role="alert" className={`border p-4 text-sm ${status === 'error' ? 'border-orange-400/25 bg-orange-400/5 text-orange-200' : 'border-accent/25 bg-accent/5 text-accent'}`}>{message}</div> : null}
               <button type="submit" disabled={status === 'sending'} className="luxury-button w-full disabled:cursor-wait disabled:opacity-60">{status === 'sending' ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Securing submission</> : <><Send className="h-4 w-4" /> Submit for verification</>}</button>
             </div>
           </form>
@@ -528,7 +528,7 @@ function ReviewSubmissionDialog({ onClose, onSubmitted }: { onClose: () => void;
 }
 
 function FormSection({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
-  return <fieldset className="border border-line/60 bg-background/30 p-4 sm:p-5"><legend className="px-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold"><span className="mr-2 text-muted-fg">{number}</span>{title}</legend><div className="mt-2 space-y-4">{children}</div></fieldset>
+  return <fieldset className="border border-line/60 bg-background/30 p-4 sm:p-5"><legend className="px-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent"><span className="mr-2 text-muted-fg">{number}</span>{title}</legend><div className="mt-2 space-y-4">{children}</div></fieldset>
 }
 
 function ReviewField({ name, label, type = 'text', required = false, placeholder }: { name: string; label: string; type?: string; required?: boolean; placeholder?: string }) {
@@ -548,8 +548,8 @@ function InlineActionForm({ endpoint, fields, onDone }: { endpoint: string; fiel
       else onDone(result.message || 'Received for moderation.')
     }}>
       {fields.length === 1 ? <textarea name={fields[0][0]} required rows={3} className="review-input" placeholder={fields[0][1]} /> : <><input name={fields[0][0]} required className="review-input" placeholder={fields[0][1]} /><textarea name={fields[1][0]} required rows={3} className="review-input" placeholder={fields[1][1]} /></>}
-      {error ? <p className="text-xs text-rose-300">{error}</p> : null}
-      <button type="submit" disabled={sending} className="border border-gold/35 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold hover:bg-gold/10 disabled:opacity-50">{sending ? 'Sending' : 'Submit'}</button>
+      {error ? <p className="text-xs text-orange-300">{error}</p> : null}
+      <button type="submit" disabled={sending} className="border border-accent/35 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent/10 disabled:opacity-50">{sending ? 'Sending' : 'Submit'}</button>
     </form>
   )
 }
@@ -567,7 +567,7 @@ function Lightbox({ review, startIndex, onClose }: { review: PublicReview; start
     return () => document.removeEventListener('keydown', handleKey)
   }, [onClose, review.media.length])
   if (!media) return null
-  return <div className="fixed inset-0 z-[90] flex items-center justify-center bg-background/96 p-4 backdrop-blur-xl" role="dialog" aria-modal="true" aria-label="Project proof gallery"><button type="button" onClick={onClose} className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center border border-line text-fg hover:border-gold/50 hover:text-gold" aria-label="Close gallery"><X className="h-5 w-5" /></button><button type="button" onClick={() => setIndex((value) => (value - 1 + review.media.length) % review.media.length)} className="absolute left-3 flex h-11 w-11 items-center justify-center border border-line bg-background/70 text-fg hover:border-gold/50 sm:left-8" aria-label="Previous image"><ChevronLeft className="h-5 w-5" /></button><figure className="max-w-5xl"><img src={media.url} alt={media.alt} className="max-h-[78vh] max-w-full object-contain" /><figcaption className="mt-4 text-center"><div className="text-xs uppercase tracking-[0.18em] text-gold">{media.category}</div><p className="mt-2 text-sm text-muted-fg">{media.alt}</p></figcaption></figure><button type="button" onClick={() => setIndex((value) => (value + 1) % review.media.length)} className="absolute right-3 flex h-11 w-11 items-center justify-center border border-line bg-background/70 text-fg hover:border-gold/50 sm:right-8" aria-label="Next image"><ChevronRight className="h-5 w-5" /></button></div>
+  return <div className="fixed inset-0 z-[90] flex items-center justify-center bg-background/96 p-4 backdrop-blur-xl" role="dialog" aria-modal="true" aria-label="Project proof gallery"><button type="button" onClick={onClose} className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center border border-line text-fg hover:border-accent/50 hover:text-accent" aria-label="Close gallery"><X className="h-5 w-5" /></button><button type="button" onClick={() => setIndex((value) => (value - 1 + review.media.length) % review.media.length)} className="absolute left-3 flex h-11 w-11 items-center justify-center border border-line bg-background/70 text-fg hover:border-accent/50 sm:left-8" aria-label="Previous image"><ChevronLeft className="h-5 w-5" /></button><figure className="max-w-5xl"><img src={media.url} alt={media.alt} className="max-h-[78vh] max-w-full object-contain" /><figcaption className="mt-4 text-center"><div className="text-xs uppercase tracking-[0.18em] text-accent">{media.category}</div><p className="mt-2 text-sm text-muted-fg">{media.alt}</p></figcaption></figure><button type="button" onClick={() => setIndex((value) => (value + 1) % review.media.length)} className="absolute right-3 flex h-11 w-11 items-center justify-center border border-line bg-background/70 text-fg hover:border-accent/50 sm:right-8" aria-label="Next image"><ChevronRight className="h-5 w-5" /></button></div>
 }
 
 function getVoterKey() {
@@ -611,5 +611,7 @@ export function ReviewSummaryBadge() {
       .catch(() => undefined)
   }, [])
   if (!stats?.total) return null
-  return <a href="#client-proof" className="mt-5 inline-flex items-center gap-3 border border-gold/25 bg-background/50 px-3 py-2 text-xs text-muted-fg backdrop-blur transition-colors hover:border-gold/50 hover:text-gold"><span className="flex"><Star className="h-3.5 w-3.5 fill-gold text-gold" /></span><strong className="text-fg">{stats.average.toFixed(1)}</strong> from {stats.total} verified review{stats.total === 1 ? '' : 's'}<ChevronRight className="h-3.5 w-3.5" /></a>
+  // The reviews section itself lives on /case-studies, so the badge links across
+  // pages rather than to a bare in-page anchor.
+  return <a href="/case-studies#client-proof" className="mt-5 inline-flex items-center gap-3 border border-accent/25 bg-background/50 px-3 py-2 text-xs text-muted-fg backdrop-blur transition-colors hover:border-accent/50 hover:text-accent"><span className="flex"><Star className="h-3.5 w-3.5 fill-accent text-accent" /></span><strong className="text-fg">{stats.average.toFixed(1)}</strong> from {stats.total} verified review{stats.total === 1 ? '' : 's'}<ChevronRight className="h-3.5 w-3.5" /></a>
 }

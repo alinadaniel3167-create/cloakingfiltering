@@ -72,14 +72,14 @@ function Playbook() {
     <>
       <section className="mx-auto max-w-4xl px-5 pb-8 pt-16 md:pt-24">
         <Reveal>
-          <span className="text-xs uppercase tracking-[0.25em] text-gold-deep">
+          <span className="text-xs uppercase tracking-[0.25em] text-accent-deep">
             Strategy · 8 min · Updated July 2026
           </span>
         </Reveal>
         <Reveal delay={80}>
           <h1 className="mt-4 font-serif text-4xl font-bold leading-tight tracking-tight md:text-6xl">
             The 2026{' '}
-            <span className="text-gradient-gold">Cloaker Playbook</span>
+            <span className="text-accent-gradient">Cloaker Playbook</span>
           </h1>
         </Reveal>
         <Reveal delay={160}>
@@ -120,7 +120,7 @@ function Playbook() {
                   <span className="font-serif text-3xl font-bold text-line">
                     {p.n}
                   </span>
-                  <h2 className="font-serif text-xl font-semibold text-gold md:text-2xl">
+                  <h2 className="font-serif text-xl font-semibold text-accent md:text-2xl">
                     {p.title}
                   </h2>
                 </div>
@@ -140,7 +140,7 @@ function Playbook() {
         <ul className="mt-8 space-y-4">
           {NOTES.map((note, i) => (
             <Reveal key={i} delay={i * 70} as="li">
-              <div className="flex gap-4 border-l-2 border-gold/40 pl-4">
+              <div className="flex gap-4 border-l-2 border-accent/40 pl-4">
                 <p className="text-muted-fg">{note}</p>
               </div>
             </Reveal>
@@ -162,7 +162,7 @@ function Playbook() {
             </div>
             <Link
               to="/audit"
-              className="shrink-0 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition-all hover:shadow-glow"
+              className="luxury-button shrink-0"
             >
               Get a free audit
             </Link>

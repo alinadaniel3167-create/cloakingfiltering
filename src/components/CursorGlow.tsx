@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * A soft gold glow that trails the cursor on pointer-capable devices.
+ * A soft accent glow that trails the cursor on pointer-capable devices.
  * Renders nothing meaningful on touch / reduced-motion. Position is driven
  * imperatively via transform to stay off the React render path.
  */

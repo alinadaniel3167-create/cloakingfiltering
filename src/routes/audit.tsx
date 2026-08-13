@@ -55,7 +55,7 @@ function Audit() {
     <>
       <section className="mx-auto max-w-4xl px-5 pb-8 pt-16 text-center md:pt-24">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] text-gold">
+          <span className="section-badge">
             No cost · No pitch
           </span>
         </Reveal>
@@ -63,21 +63,20 @@ function Audit() {
           <h1 className="mt-6 font-serif text-4xl font-bold leading-tight tracking-tight md:text-6xl">
             A free funnel audit,
             <br />
-            <span className="text-gradient-gold">then a 30-day roadmap.</span>
+            <span className="text-accent-gradient">then a 30-day roadmap.</span>
           </h1>
         </Reveal>
         <Reveal delay={160}>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-fg">
-            I'll review your cloaking, filtering, funnel, account structure,
-            measurement, and buying — then hand you a dated plan for the next
-            month of growth. Whether we work together after is entirely up to
-            you.
+            A review of your filtering, funnel, account structure and measurement —
+            then a dated plan for the next month of growth. Working together
+            after is entirely optional.
           </p>
         </Reveal>
         <Reveal delay={240}>
           <a
             href="#audit-form"
-            className="mt-8 inline-block rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:shadow-glow-lg"
+            className="luxury-button mt-8"
           >
             Claim my audit
           </a>
@@ -92,7 +91,7 @@ function Audit() {
                 <div className="mb-3 font-serif text-2xl font-bold text-line">
                   0{i + 1}
                 </div>
-                <h2 className="font-serif text-xl font-semibold text-gold">
+                <h2 className="font-serif text-xl font-semibold text-accent">
                   {d.title}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-fg">
@@ -114,7 +113,7 @@ function Audit() {
           {STEPS.map((s, i) => (
             <Reveal key={i} delay={i * 70} as="li">
               <div className="flex items-start gap-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/40 text-sm font-semibold text-gold">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-accent/40 font-mono text-xs font-semibold text-accent">
                   {i + 1}
                 </span>
                 <p className="pt-1 text-muted-fg">{s}</p>
@@ -140,7 +139,7 @@ function Audit() {
         <Reveal delay={120}>
           <p className="mt-8 text-center text-sm text-muted-fg">
             Not ready?{' '}
-            <Link to="/case-studies" className="text-gold hover:underline">
+            <Link to="/case-studies" className="text-accent hover:underline">
               See what the roadmaps have produced
             </Link>
             .

@@ -59,7 +59,7 @@ function CaseStudyPage() {
       <Reveal>
         <Link
           to="/case-studies"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-fg transition-colors hover:text-gold"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-fg transition-colors hover:text-accent"
         >
           <span>←</span> All case studies
         </Link>
@@ -67,7 +67,7 @@ function CaseStudyPage() {
 
       <header className="mt-6">
         <Reveal>
-          <span className="text-xs uppercase tracking-[0.25em] text-gold-deep">
+          <span className="text-xs uppercase tracking-[0.25em] text-accent-deep">
             {study.vertical}
           </span>
           <h1 className="mt-3 font-serif text-3xl font-bold leading-tight tracking-tight md:text-5xl">
@@ -96,7 +96,7 @@ function CaseStudyPage() {
       {/* Challenge */}
       <Reveal>
         <section className="mt-14">
-          <h2 className="font-serif text-2xl font-semibold text-gold">
+          <h2 className="font-serif text-2xl font-semibold text-accent">
             The challenge
           </h2>
           <p className="mt-4 leading-relaxed text-fg/90">{study.challenge}</p>
@@ -106,7 +106,7 @@ function CaseStudyPage() {
       {/* Approach */}
       <section className="mt-14">
         <Reveal>
-          <h2 className="font-serif text-2xl font-semibold text-gold">
+          <h2 className="font-serif text-2xl font-semibold text-accent">
             The approach
           </h2>
         </Reveal>
@@ -130,7 +130,7 @@ function CaseStudyPage() {
       {/* Results grid */}
       <section className="mt-14">
         <Reveal>
-          <h2 className="font-serif text-2xl font-semibold text-gold">
+          <h2 className="font-serif text-2xl font-semibold text-accent">
             The results
           </h2>
         </Reveal>
@@ -138,7 +138,7 @@ function CaseStudyPage() {
           <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
             {study.results.map((r, i) => (
               <div key={i} className="bg-panel p-6 text-center">
-                <div className="font-serif text-2xl font-bold text-gradient-gold">
+                <div className="font-serif text-2xl font-bold text-accent-gradient">
                   {r.value}
                 </div>
                 <div className="mt-1.5 text-xs uppercase tracking-[0.12em] text-muted-fg">
@@ -157,7 +157,7 @@ function CaseStudyPage() {
             <p className="font-serif text-xl italic leading-relaxed text-fg md:text-2xl">
               "{study.testimonial.quote}"
             </p>
-            <footer className="mt-4 text-sm text-gold-deep">
+            <footer className="mt-4 text-sm text-accent-deep">
               — {study.testimonial.attribution}
             </footer>
           </blockquote>
@@ -177,7 +177,7 @@ function CaseStudyPage() {
           </div>
           <Link
             to="/audit"
-            className="shrink-0 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition-all hover:shadow-glow"
+            className="luxury-button shrink-0"
           >
             Get a free audit
           </Link>
@@ -190,7 +190,7 @@ function CaseStudyPage() {
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <span>
-      <span className="text-gold-deep">{label}:</span> {value}
+      <span className="text-accent-deep">{label}:</span> {value}
     </span>
   )
 }
@@ -208,7 +208,7 @@ function BigStat({
     <div className="panel p-5 text-center">
       <div
         className={`font-serif text-2xl font-bold ${
-          accent ? 'text-gradient-gold' : 'text-fg'
+          accent ? 'text-accent-gradient' : 'text-fg'
         }`}
       >
         {value}

@@ -64,7 +64,7 @@ export function ContactForms() {
   return (
     <div className="overflow-hidden border border-line/60 bg-card/70 shadow-luxury lg:grid lg:grid-cols-[0.72fr_1.28fr]">
       <aside className="relative overflow-hidden border-b border-line/60 bg-secondary/35 p-7 sm:p-10 lg:border-b-0 lg:border-r">
-        <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 bg-gold/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 bg-accent/10 blur-3xl" />
         <div className="relative">
           <div className="section-badge"><LockKeyhole className="h-3 w-3" /> Private Inquiry</div>
           <h3 className="mt-6 font-display text-3xl font-bold">Start with a focused strategy review.</h3>
@@ -74,7 +74,7 @@ export function ContactForms() {
           <ul className="mt-8 space-y-4">
             {FIT_POINTS.map((point) => (
               <li key={point} className="flex gap-3 text-sm leading-6">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/35 text-gold"><Check className="h-3 w-3" /></span>
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/35 text-accent"><Check className="h-3 w-3" /></span>
                 {point}
               </li>
             ))}
@@ -96,7 +96,7 @@ export function ContactForms() {
         </p>
 
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Request a Strategy Audit</div>
+          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Request a Strategy Audit</div>
           <h3 className="mt-3 font-display text-3xl font-bold">Tell me what you are building.</h3>
           <p className="mt-3 text-sm leading-6 text-muted-fg">Fields marked with * are required.</p>
         </div>
@@ -132,14 +132,14 @@ export function ContactForms() {
 
         <div className="mt-7 flex flex-col gap-4 border-t border-line/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-xs leading-5 text-muted-fg">
-            By submitting, you agree to the <Link to="/privacy" className="text-gold hover:underline">Privacy Policy</Link>. No mailing lists or unsolicited promotions.
+            By submitting, you agree to the <Link to="/privacy" className="text-accent hover:underline">Privacy Policy</Link>. No mailing lists or unsolicited promotions.
           </p>
           <button disabled={status === 'sending'} type="submit" className="luxury-button shrink-0 disabled:opacity-60">
             {status === 'sending' ? 'Sending…' : 'Send Request'} <Send className="h-4 w-4" />
           </button>
         </div>
 
-        <p aria-live="polite" className={`mt-4 text-sm ${status === 'error' ? 'text-red-400' : status === 'done' ? 'text-gold' : 'text-muted-fg'}`}>
+        <p aria-live="polite" className={`mt-4 text-sm ${status === 'error' ? 'text-red-400' : status === 'done' ? 'text-accent' : 'text-muted-fg'}`}>
           {status === 'done' ? 'Your request was saved successfully. A private Telegram alert is sent to Kareem for follow-up.' : status === 'error' ? 'The request could not be sent. Please continue on Telegram instead.' : 'Your information stays private and is reviewed only for this inquiry.'}
         </p>
       </form>

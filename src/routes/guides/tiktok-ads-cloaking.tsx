@@ -59,7 +59,7 @@ function Guide() {
   return (
     <article className="mx-auto max-w-3xl px-5 pb-20 pt-12 md:pt-16">
       <Reveal>
-        <span className="text-xs uppercase tracking-[0.25em] text-gold-deep">
+        <span className="text-xs uppercase tracking-[0.25em] text-accent-deep">
           Technical guide · Updated July 2026
         </span>
         <h1 className="mt-4 font-serif text-4xl font-bold leading-tight tracking-tight md:text-5xl">
@@ -71,7 +71,7 @@ function Guide() {
           market rules, and deliver a more relevant landing experience to
           qualified visitors.
         </p>
-        <p className="mt-5 border-l-2 border-gold/50 bg-gold/5 p-5 text-sm leading-7 text-muted-fg">
+        <p className="mt-5 border-l-2 border-accent/50 bg-accent/5 p-5 text-sm leading-7 text-muted-fg">
           Filtering should never be used to deceive platform review or hide a
           materially different offer. The advertiser, product, claims, pricing,
           terms, and required disclosures should remain consistent.
@@ -83,27 +83,27 @@ function Guide() {
           aria-label="On this page"
           className="mt-10 border border-line bg-panel/40 p-5"
         >
-          <div className="mb-3 text-xs uppercase tracking-[0.18em] text-gold-deep">
+          <div className="mb-3 text-xs uppercase tracking-[0.18em] text-accent-deep">
             On this page
           </div>
           <ol className="space-y-2 text-sm">
             <li>
-              <a href="#value" className="text-fg hover:text-gold">
+              <a href="#value" className="text-fg hover:text-accent">
                 1. Where cloaking and filtering create value
               </a>
             </li>
             <li>
-              <a href="#quality" className="text-fg hover:text-gold">
+              <a href="#quality" className="text-fg hover:text-accent">
                 2. Build a traffic-quality layer
               </a>
             </li>
             <li>
-              <a href="#localization" className="text-fg hover:text-gold">
+              <a href="#localization" className="text-fg hover:text-accent">
                 3. Deliver responsible localized variants
               </a>
             </li>
             <li>
-              <a href="#measurement" className="text-fg hover:text-gold">
+              <a href="#measurement" className="text-fg hover:text-accent">
                 4. Monitor filtering and customer quality
               </a>
             </li>
@@ -158,7 +158,7 @@ function Guide() {
                 key={label}
                 className="border border-line/60 bg-panel/35 p-4"
               >
-                <div className="text-[10px] uppercase tracking-[0.16em] text-gold">
+                <div className="text-[10px] uppercase tracking-[0.16em] text-accent">
                   {label}
                 </div>
                 <div className="mt-2 text-sm text-fg">{value}</div>
@@ -205,7 +205,7 @@ function Guide() {
       </div>
 
       <Reveal>
-        <section className="mt-16 border border-gold/30 bg-gold/5 p-6 sm:p-8">
+        <section className="mt-16 border border-accent/30 bg-accent/5 p-6 sm:p-8">
           <h2 className="font-serif text-2xl font-bold">
             Valuable cloaking and filtering checklist
           </h2>
@@ -215,7 +215,7 @@ function Guide() {
                 key={item}
                 className="flex items-start gap-3 text-sm leading-6"
               >
-                <Check className="mt-1 h-4 w-4 shrink-0 text-gold" />
+                <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
                 {item}
               </li>
             ))}
@@ -258,7 +258,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="font-serif text-2xl font-bold leading-tight text-gold md:text-3xl">
+      <h2 className="font-serif text-2xl font-bold leading-tight text-accent md:text-3xl">
         {title}
       </h2>
       <div className="mt-5 space-y-5 text-[1.02rem] leading-8 text-muted-fg">
@@ -276,8 +276,8 @@ function Callout({
   children: React.ReactNode
 }) {
   return (
-    <div className="border-l-2 border-gold/60 bg-panel/40 p-5">
-      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+    <div className="border-l-2 border-accent/60 bg-panel/40 p-5">
+      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
         {title}
       </div>
       <p className="mt-2 text-sm leading-7 text-fg">{children}</p>

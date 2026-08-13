@@ -4,8 +4,11 @@ import { SITE_URL } from '@/lib/site'
 
 const STATIC_PATHS = [
   { path: '/', priority: '1.0', freq: 'weekly' },
+  { path: '/services', priority: '0.9', freq: 'monthly' },
+  { path: '/markets', priority: '0.9', freq: 'monthly' },
   { path: '/audit', priority: '0.9', freq: 'monthly' },
   { path: '/case-studies', priority: '0.8', freq: 'weekly' },
+  { path: '/proof', priority: '0.8', freq: 'monthly' },
   { path: '/playbook', priority: '0.8', freq: 'monthly' },
   { path: '/guides/tiktok-ads-cloaking', priority: '0.7', freq: 'monthly' },
   { path: '/privacy', priority: '0.3', freq: 'yearly' },
