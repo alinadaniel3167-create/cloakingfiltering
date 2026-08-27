@@ -48,19 +48,19 @@ export const workArchive: WorkItem[] = [
   {
     slug: 'meta-ads-campaigns',
     image: '/work/meta-ads-campaigns.jpg',
-    width: 1400,
-    height: 406,
-    alt: 'Meta Ads Manager campaign table showing South Africa and UAE campaigns with cost per result and frequency',
-    title: 'Campaign structure split by market',
+    width: 1280,
+    height: 728,
+    alt: 'Meta Ads Manager showing twenty-three South Africa and UAE campaigns with spend, reach, link clicks and frequency, totalling $449.26 spent across 88,715 impressions',
+    title: 'Twenty-three campaigns, with the totals row',
     platform: 'Meta Ads Manager',
     category: 'Paid Media',
     period: 'Mar 2025',
     caption:
-      'Parallel campaigns split by geo and budget tier so cost per purchase reads per market instead of blended. Frequency held between 1.1 and 1.4 across the set, which keeps creative fatigue out of the numbers.',
+      'The whole table this time rather than a slice of it, down to the results row: 23 campaigns split by geo and budget tier, $449.26 spent, 60,803 people reached, 965 link clicks. Per-campaign frequency sits between 1.00 and 1.34 while the blended figure reads 1.46 — the gap between those two numbers is the argument for splitting by market, because the blend is the only one a summary report would have carried. Cost per result reads as a dash across the set: attribution had not landed at the time of capture, and it is published with that gap showing rather than cropped away. The account label is blacked out.',
     metrics: [
-      { label: 'Cost / result', value: '$4.59–$9.22' },
-      { label: 'Frequency', value: '1.12–1.34' },
-      { label: 'Markets', value: 'ZA · UAE' },
+      { label: 'Campaigns', value: '23' },
+      { label: 'Total spent', value: '$449.26' },
+      { label: 'Reach', value: '60,803' },
     ],
   },
   {
@@ -136,6 +136,24 @@ export const workArchive: WorkItem[] = [
     ],
   },
   {
+    slug: 'google-ads-keyword-campaigns',
+    image: '/work/google-ads-keyword-campaigns.jpg',
+    width: 1154,
+    height: 793,
+    alt: 'Google Ads mobile keyword report rejoined into two columns, showing eight account-recovery keywords each labelled with its campaign, geo and eligibility status',
+    title: 'Which campaign each keyword sits in',
+    platform: 'Google Ads',
+    category: 'Paid Media',
+    period: 'All time',
+    caption:
+      'The same account as the table above, read from the app instead — where every keyword carries its campaign and geo on the line underneath it. Two adjacent screens rejoined side by side, top eight terms by impressions. Half are eligible and half sit under a paused campaign, which is the reason to read it this way: the paused CA terms still spent, and only the per-keyword label says which geo that money went to.',
+    metrics: [
+      { label: 'Terms shown', value: '8 of 20' },
+      { label: 'Geo split', value: 'US · CA' },
+      { label: 'Top term', value: '604 clicks' },
+    ],
+  },
+  {
     slug: 'google-ads-account-overview',
     image: '/work/google-ads-account-overview.jpg',
     width: 1400,
@@ -188,6 +206,55 @@ export const workArchive: WorkItem[] = [
       { label: 'Terms sized', value: '11' },
       { label: 'Output', value: 'Ad copy set' },
     ],
+  },
+  {
+    slug: 'keitaro-filter-decisions',
+    image: '/work/keitaro-filter-decisions.jpg',
+    width: 1280,
+    height: 638,
+    alt: 'Keitaro click log with the filter and page columns open, showing US mobile carrier traffic routed to the offer page while VPN, proxy and Google datacentre clicks are routed to the white page',
+    title: 'The filter deciding, click by click',
+    platform: 'Keitaro',
+    category: 'Tracking & Infrastructure',
+    period: 'Jul 2025',
+    caption:
+      'One flight, 113 clicks, with the two columns that actually settle the argument left open: FILTER and PAGE. Consumer mobile carriers — T-Mobile, Verizon, Comcast, AT&T — resolve to Offer. The rows flagged VPN/Proxy, and the Google datacentre ranges beneath them, resolve to White. This is what a working setup looks like from the inside: not a claim about compliance, a per-click decision that can be audited after the fact. The visitor IP column is blacked out — those are real people’s addresses.',
+    metrics: [
+      { label: 'Clicks in flight', value: '113' },
+      { label: 'Carrier traffic', value: '→ Offer' },
+      { label: 'VPN / proxy', value: '→ White' },
+    ],
+  },
+  {
+    slug: 'keitaro-flow-split',
+    image: '/work/keitaro-flow-split.jpg',
+    width: 1400,
+    height: 470,
+    alt: 'Keitaro campaigns list showing three campaigns named bot, safe page flow and offer page campaign, two of them sourced from Google Ads',
+    title: 'Three campaigns, named for their jobs',
+    platform: 'Keitaro',
+    category: 'Tracking & Infrastructure',
+    period: 'Apr 2026',
+    caption:
+      'The architecture stated in the campaign names rather than buried in a rule set: a bot bucket, a safe page flow and an offer page campaign, one flow each, two of them bound to Google Ads as the source. Captured at zero clicks, because a build is worth reviewing before it serves — that is the only point at which changing it costs nothing. The tracker admin URL is cropped out.',
+    metrics: [
+      { label: 'Campaigns', value: '3' },
+      { label: 'Flows', value: '1 each' },
+      { label: 'Served', value: 'Not yet' },
+    ],
+  },
+  {
+    slug: 'keitaro-postback-config',
+    image: '/work/keitaro-postback-config.jpg',
+    width: 1160,
+    height: 692,
+    alt: 'Keitaro affiliate network editor showing an offer parameter and a full server-to-server postback URL built from click ID, status, payout, currency and five sub-ID macros',
+    title: 'Server-to-server postback, wired all the way',
+    platform: 'Keitaro',
+    category: 'Tracking & Infrastructure',
+    period: 'Live',
+    caption:
+      'The network side of the tracker: one offer parameter carrying the click ID out, and a postback URL bringing status, payout, currency and all five sub-IDs back. Leave sub2 through sub5 unmapped and a conversion still lands — it just lands with no idea which placement earned it, which is how a source gets cut for looking unprofitable. The tracker host and campaign token on the first line are blacked out.',
   },
   {
     slug: 'keitaro-clicks-log',
@@ -282,6 +349,24 @@ export const workArchive: WorkItem[] = [
     ],
   },
   {
+    slug: 'keitaro-licenses-renewed',
+    image: '/work/keitaro-licenses-renewed.jpg',
+    width: 900,
+    height: 1597,
+    alt: 'Keitaro account licenses page on mobile showing two Starter licences, one paid and expiring September 2026 and one unpaid, with both keys blacked out',
+    title: 'A licence per instance, not one shared install',
+    platform: 'Keitaro',
+    category: 'Tracking & Infrastructure',
+    period: 'Valid to Sep 2026',
+    caption:
+      'Two Starter licences held alongside the Expert instance above — one paid and running to September 20, 2026, one unpaid and deliberately idle. Separate licences per instance rather than one install shared across engagements is the reason a client’s click data never sits in another client’s tracker. Both keys are blacked out; a licence key is a credential, and what this page is here to show is the edition and the expiry.',
+    metrics: [
+      { label: 'Licences', value: '2' },
+      { label: 'Edition', value: 'Starter' },
+      { label: 'Paid to', value: 'Sep 20, 2026' },
+    ],
+  },
+  {
     slug: 'grooming-store-build',
     image: '/work/grooming-store-build.jpg',
     width: 268,
@@ -344,6 +429,42 @@ export const workArchive: WorkItem[] = [
     ],
   },
   {
+    slug: 'merchant-product-traffic',
+    image: '/work/merchant-product-traffic.jpg',
+    width: 1291,
+    height: 658,
+    alt: 'Google Merchant Center report on traffic to product pages showing 1.25 million clicks, 192.73 million impressions, 0.6 percent CTR and 876 organic purchases over a ten-year window',
+    title: 'Ten years of product-page traffic',
+    platform: 'Google Merchant Center',
+    category: 'Store & SEO',
+    period: 'Feb 2016 – Feb 2026',
+    caption:
+      'Ads and organic plotted on one axis across the whole history of a catalogue: 1.25M clicks against 192.73M impressions. The orange spikes are campaign windows and the flat stretches are the store running on organic alone — which is the comparison this report exists to make, and the reason paid work here gets scoped against an existing baseline rather than presented as a launch.',
+    metrics: [
+      { label: 'Clicks', value: '1.25M' },
+      { label: 'Impressions', value: '192.73M' },
+      { label: 'Purchases', value: '876' },
+    ],
+  },
+  {
+    slug: 'shopify-weekly-sales',
+    image: '/work/shopify-weekly-sales.jpg',
+    width: 1280,
+    height: 596,
+    alt: 'Shopify dashboard for a seven-day window showing 285 sessions, US$9,130 total sales, 13 orders and a 1.4 percent conversion rate against the previous week',
+    title: '$9,130 off 285 sessions',
+    platform: 'Shopify',
+    category: 'Store & SEO',
+    period: 'Jan 2026',
+    caption:
+      'A seven-day window with the week before drawn in behind it as a dotted line. 285 sessions and 13 orders puts average order value near $700, which is what makes a 1.4% conversion rate the right number to leave alone — and the two backlog tiles underneath, 50+ orders to fulfil and 50+ payments to capture, say the week was not a one-off spike.',
+    metrics: [
+      { label: 'Total sales', value: '$9,130' },
+      { label: 'Orders', value: '13' },
+      { label: 'Sessions', value: '285' },
+    ],
+  },
+  {
     slug: 'client-sales-milestone',
     image: '/work/client-sales-milestone.jpg',
     width: 1024,
@@ -379,6 +500,6 @@ export const workPlatforms = [
  * the front: thumbnails crop to 16/10 from the top, so the tall phone captures
  * would show nothing but a status bar.
  */
-export const featuredWork = ['meta-ads-campaigns', 'keitaro-clicks-log', 'rollerads-campaigns', 'shopify-seo-optimized']
+export const featuredWork = ['meta-ads-campaigns', 'keitaro-filter-decisions', 'rollerads-campaigns', 'shopify-seo-optimized']
   .map(slug => workArchive.find(item => item.slug === slug))
   .filter((item): item is WorkItem => Boolean(item))

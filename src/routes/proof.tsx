@@ -21,7 +21,7 @@ export const Route = createFileRoute('/proof')({
         content:
           'Screenshots straight from the accounts — campaign structure, click logs, tracker infrastructure and store builds.',
       },
-      { property: 'og:image', content: `${SITE_URL}/work/reporting-snapshot.jpg` },
+      { property: 'og:image', content: `${SITE_URL}/work/keitaro-filter-decisions.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [{ rel: 'canonical', href: `${SITE_URL}/proof` }],
@@ -81,14 +81,15 @@ function Proof() {
             <Reveal delay={120}>
               <figure className="niche-figure">
                 <img
-                  src="/work/reporting-snapshot.jpg"
-                  alt="Google Ads overview on a laptop and phone showing 990 clicks, 256 conversions and $4.78 cost per conversion"
-                  width={1400}
-                  height={933}
+                  src="/work/keitaro-filter-decisions.jpg"
+                  alt="Keitaro click log with the filter and page columns open, showing US mobile carrier traffic routed to the offer page while VPN and proxy clicks are routed to the white page"
+                  width={1280}
+                  height={638}
                   className="w-full"
                 />
                 <figcaption className="border-t border-line/60 bg-card/60 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-fg">
-                  Google Ads · 990 clicks · <span className="text-accent">256 conversions</span> · $4.78 cost / conv.
+                  Keitaro · 113 clicks, one flight · carrier traffic <span className="text-accent">→ Offer</span> · VPN /
+                  proxy → White
                 </figcaption>
               </figure>
             </Reveal>
